@@ -54,6 +54,8 @@ class Tab2 : Fragment() {
             add(GalleryData(R.drawable.kingsman,"8.7","킹스맨-퍼스트 에이전트", "#액션", "#시리즈"))
             add(GalleryData(R.drawable.matrix,"6.8","매트릭스-리저렉션", "#액션", "#SF"))
             add(GalleryData(R.drawable.drivemycar,"9.4","드라이브 마이 카", "#드라마", "#감동"))
+            add(GalleryData(R.drawable.lamb,"8.7","램", "#호러", "#스릴러"))
+            add(GalleryData(R.drawable.amelie,"9.4","아멜리에", "#코미디", "#환타지"))
         }
     }
 
