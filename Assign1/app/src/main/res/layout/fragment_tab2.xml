@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tab2">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/galleryRecyclerView"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/photoCardViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/gallery_list" />
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        />
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dots_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="25dp"
+        app:dotsColor="#A6A6A6"
+        app:dotsCornerRadius="4dp"
+        app:dotsSize="8dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="2.5"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:progressMode="false"
+        app:selectedDotColor="@color/black" />
+
+
+
 
 </FrameLayout>
