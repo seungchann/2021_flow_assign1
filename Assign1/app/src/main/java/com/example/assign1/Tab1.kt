@@ -11,9 +11,9 @@ import com.example.assign1.databinding.FragmentTab1Binding
 class Tab1 : Fragment() {
 
     private lateinit var binding: FragmentTab1Binding
-    private lateinit var adapter: RecyclerViewAdapter
+    private lateinit var adapter: ContactViewAdapter
 
-    val mDatas = mutableListOf<ProfileData>()
+    var mDatas = mutableListOf<ProfileData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +30,20 @@ class Tab1 : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        binding = FragmentTab1Binding.inflate(layoutInflater)
+        super.onDestroyView()
+    }
+
     fun initProfileRecyclerView(){
-        val adapter = RecyclerViewAdapter() //어댑터 객체 만듦
+        val adapter = ContactViewAdapter() //어댑터 객체 만듦
         adapter.datalist = mDatas //데이터 넣어줌
-        binding.recyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
-        binding.recyclerView.layoutManager = LinearLayoutManager(activity) //레이아웃 매니저 연결
+        binding.contactRecyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
+        binding.contactRecyclerView.layoutManager = LinearLayoutManager(activity) //레이아웃 매니저 연결
     }
 
     fun initializelist(){ //임의로 데이터 넣어서 만들어봄
+        mDatas = mutableListOf<ProfileData>()
         with(mDatas){
             add(ProfileData("","Test1","010-1111-1111"))
             add(ProfileData("","Test2","010-2222-2222"))

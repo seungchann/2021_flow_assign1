@@ -3,22 +3,20 @@ package com.example.assign1
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assign1.databinding.ItemListBinding
+import com.example.assign1.databinding.GalleryListBinding
 
-class RecyclerViewAdapter: RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class GalleryViewAdapter: RecyclerView.Adapter<GalleryViewAdapter.MyViewHolder>() {
     var datalist = mutableListOf<ProfileData>()
 
-    inner class MyViewHolder(private val binding: ItemListBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: GalleryListBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(profileData: ProfileData){
-           binding.profileNameTv.text = profileData.profileName
-            binding.profileNumberTv.text = profileData.profileNumber
         }
     }
 
     //만들어진 뷰홀더 없을때 뷰홀더(레이아웃) 생성하는 함수
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = GalleryListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 

@@ -5,28 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.assign1.databinding.FragmentTab1Binding
+import com.example.assign1.databinding.FragmentTab2Binding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Tab2.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Tab2 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentTab2Binding
+    private lateinit var adapter: ContactViewAdapter
+
+    var mDatas = mutableListOf<ProfileData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -34,26 +25,32 @@ class Tab2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tab2, container, false)
+        binding = FragmentTab2Binding.inflate(layoutInflater)
+        initializelist()
+        initProfileRecyclerView()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Tab2.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Tab2().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun initProfileRecyclerView(){
+        val adapter = GalleryViewAdapter() //어댑터 객체 만듦
+        adapter.datalist = mDatas //데이터 넣어줌
+        binding.galleryRecyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
+        binding.galleryRecyclerView.layoutManager = GridLayoutManager(activity, 3) //레이아웃 매니저 연결
+    }
+
+    fun initializelist(){ //임의로 데이터 넣어서 만들어봄
+        mDatas = mutableListOf<ProfileData>()
+        with(mDatas){
+            add(ProfileData("","Test1","010-1111-1111"))
+            add(ProfileData("","Test2","010-2222-2222"))
+            add(ProfileData("","Test3","010-3333-3333"))
+            add(ProfileData("","Test4","010-4444-4444"))
+            add(ProfileData("","Test5","010-5555-5555"))
+            add(ProfileData("","Test6","010-6666-6666"))
+            add(ProfileData("","Test7","010-7777-7777"))
+            add(ProfileData("","Test8","010-8888-8888"))
+            add(ProfileData("","Test9","010-9999-9999"))
+            add(ProfileData("","Test10","010-1010-1010"))
+        }
     }
 }
