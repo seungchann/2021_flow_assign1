@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="15dp"
         app:dotsColor="#A6A6A6"
         app:dotsCornerRadius="4dp"
         app:dotsSize="8dp"
