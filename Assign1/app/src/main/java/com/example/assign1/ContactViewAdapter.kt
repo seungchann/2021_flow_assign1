@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assign1.databinding.ProfileListBinding
 
+
 class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>() {
     var datalist = mutableListOf<ProfileData>()
 
@@ -29,4 +30,12 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(datalist[position])
     }
+
+    // profile data 삭제하는 함
+    fun removeData(position: Int){
+        datalist.removeAt(position)
+        removeContactData(position)
+        notifyItemRemoved(position)
+    }
+
 }
