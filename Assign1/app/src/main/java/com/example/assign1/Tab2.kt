@@ -33,7 +33,7 @@ class Tab2 : Fragment() {
     }
 
     fun initProfileRecyclerView(){
-        val adapter = GalleryViewAdapter() //어댑터 객체 만듦
+        val adapter = TicketViewAdapter() //어댑터 객체 만듦
         binding.photoCardViewPager.adapter = adapter
         binding.photoCardViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
         binding.photoCardViewPager.setPageTransformer(ZoomOutPageTransformer())
@@ -44,7 +44,10 @@ class Tab2 : Fragment() {
     fun initializelist(){ //임의로 데이터 넣어서 만들어봄
         mDatas = mutableListOf<TicketData>()
         with(mDatas){
-            add(TicketData("DEC.31. 2021","P.M. 08:00 ~ 12:00","15,000 ₩","카이스트 N1 114호","스테이크\n파스타\n와인","",0,0,1,2,"","","",""))
+            add(TicketData("blue"))
+            add(TicketData("green"))
+            add(TicketData("pink"))
+            add(TicketData("black"))
         }
     }
 
