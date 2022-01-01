@@ -39,7 +39,7 @@ class Tab1 : Fragment() {
             R.id.menuAdd -> {
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
                 transaction.replace(R.id.frameLayout, AddProfileData())
-                transaction.disallowAddToBackStack()
+//                transaction.disallowAddToBackStack()
                 transaction.commit()
 
                 return super.onOptionsItemSelected(item)
@@ -139,7 +139,7 @@ class Tab1 : Fragment() {
             val gson = Gson()
             val arrayProfileDataType = object : TypeToken<Array<ProfileData>>() {}.type
             var profiles: Array<ProfileData> = gson.fromJson(jsonString, arrayProfileDataType)
-            profiles.forEachIndexed { index, profileData -> mDatas.add(ProfileData(profileData.profileName,profileData.profileNumber)
+            profiles.forEachIndexed { index, profileData -> mDatas.add(ProfileData(profileData.profileName,profileData.profileNumber,profileData.profileAddress)
                 )
             }
         }
