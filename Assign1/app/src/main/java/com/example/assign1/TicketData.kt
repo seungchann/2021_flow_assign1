@@ -1,7 +1,7 @@
 package com.example.assign1
 
 data class TicketData (
-    val layerColor: String
+    val layerColorResource: Int
 //    val ticketDate: String,
 //    val ticketTime: String,
 //    val ticketEntryFee: String,

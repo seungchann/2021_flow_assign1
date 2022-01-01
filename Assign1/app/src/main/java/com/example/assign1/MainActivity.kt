@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var tab2: Tab2
     lateinit var tab3: Tab3
 
+    var ticketDataList = mutableListOf<TicketData>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

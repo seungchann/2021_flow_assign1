@@ -14,31 +14,23 @@ class TicketViewAdapter: RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() 
 
     inner class MyViewHolder(private val binding: TicketLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun setupColor(color: String) {
+        fun setupColor(color: Int) {
             val brightColorTextViewList = mutableListOf<TextView>(binding.titleTextView1, binding.titleTextView2, binding.titleTextView3, binding.titleTextView4)
             val darkColorTextViewList = mutableListOf<TextView>(binding.dateTextView, binding.timeTextView, binding.profileTextView1, binding.profileTextView2, binding.profileTextView3, binding.profileTextView4, binding.partyNameTextView, binding.addressTextView, binding.costTextView)
+            var hexValues = mutableListOf<String>()
 
-            if (color == "black") {
-                binding.backgroundView.setBackgroundColor(Color.parseColor("#242424"))
-                binding.ticketLayerImageView.setImageResource(R.drawable.ticket_layer_black)
-                brightColorTextViewList.forEach { it.setTextColor(Color.parseColor("#919191")) }
-                darkColorTextViewList.forEach { it.setTextColor(Color.parseColor("#212121")) }
-            } else if (color == "pink") {
-                binding.backgroundView.setBackgroundColor(Color.parseColor("#ff4770"))
-                binding.ticketLayerImageView.setImageResource(R.drawable.ticket_layer_pink)
-                brightColorTextViewList.forEach { it.setTextColor(Color.parseColor("#ffc2d0")) }
-                darkColorTextViewList.forEach { it.setTextColor(Color.parseColor("#db3e63")) }
-            } else if (color == "blue") {
-                binding.backgroundView.setBackgroundColor(Color.parseColor("#3e3dae"))
-                binding.ticketLayerImageView.setImageResource(R.drawable.ticket_layer_blue)
-                brightColorTextViewList.forEach { it.setTextColor(Color.parseColor("#5150e8")) }
-                darkColorTextViewList.forEach { it.setTextColor(Color.parseColor("#3e3dae")) }
-            } else if (color == "green") {
-                binding.backgroundView.setBackgroundColor(Color.parseColor("#09685b"))
-                binding.ticketLayerImageView.setImageResource(R.drawable.ticket_layer_green)
-                brightColorTextViewList.forEach { it.setTextColor(Color.parseColor("#34a79d")) }
-                darkColorTextViewList.forEach { it.setTextColor(Color.parseColor("#026326")) }
+            when (color) {
+                R.drawable.ticket_layer_black -> hexValues = mutableListOf<String>("#242424", "#919191", "#212121")
+                R.drawable.ticket_layer_pink -> hexValues = mutableListOf<String>("#ff4770", "#ffc2d0", "#db3e63")
+                R.drawable.ticket_layer_blue -> hexValues = mutableListOf<String>("#3e3dae", "#5150e8", "#3e3dae")
+                R.drawable.ticket_layer_green -> hexValues = mutableListOf<String>("#09685b", "#34a79d", "#026326")
+                else -> return
             }
+
+            binding.backgroundView.setBackgroundColor(Color.parseColor(hexValues[0]))
+            binding.ticketLayerImageView.setImageResource(color)
+            brightColorTextViewList.forEach { it.setTextColor(Color.parseColor(hexValues[1])) }
+            darkColorTextViewList.forEach { it.setTextColor(Color.parseColor(hexValues[2])) }
         }
 
         fun bind(ticketData: TicketData){
@@ -50,7 +42,7 @@ class TicketViewAdapter: RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() 
             val barcodeEncoder = BarcodeEncoder()
             val bitmap = barcodeEncoder.encodeBitmap("123456", BarcodeFormat.CODE_128, 750, 120)
             binding.BarcodeImageView.setImageBitmap(bitmap)
-            setupColor(ticketData.layerColor)
+            setupColor(ticketData.layerColorResource)
 //            binding.photoCardImageView.setImageResource(galleryData.photoCardImageResource)
 //            binding.movieNameTextView.text = galleryData.movieName
 //            binding.scoreTextView.text = galleryData.movieScore
