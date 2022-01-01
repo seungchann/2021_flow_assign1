@@ -1,19 +1,19 @@
 package com.example.assign1
 
 data class TicketData (
-    val layerColorResource: Int
-//    val ticketDate: String,
-//    val ticketTime: String,
-//    val ticketEntryFee: String,
-//    val ticketAddress: String,
-//    var ticketHost: String,
-//    val profileImageResource1 : Int,
-//    val profileImageResource2 : Int,
-//    val profileImageResource3 : Int,
-//    val profileImageResource4 : Int,
-//    val profileName1 : String,
-//    val profileName2 : String,
-//    val profileName3 : String,
-//    var profileName4 : String
+    var layerColorResource: Int,
+    var ticketDate: String,
+    var ticketTime: String,
+    var ticketEntryFee: String,
+    var ticketAddress: String,
+    var ticketHost: String,
+    var profileImageResource1 : Int,
+    var profileImageResource2 : Int,
+    var profileImageResource3 : Int,
+    var profileImageResource4 : Int,
+    var profileName1 : String,
+    var profileName2 : String,
+    var profileName3 : String,
+    var profileName4 : String
 )
 
