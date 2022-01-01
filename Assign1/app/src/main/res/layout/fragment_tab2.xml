@@ -27,7 +27,7 @@
         app:dotsWidthFactor="2.5"
         app:layout_constraintHorizontal_bias="0.496"
         app:progressMode="false"
-        app:selectedDotColor="@color/black" />
+        app:selectedDotColor="@color/white" />
 
 
 

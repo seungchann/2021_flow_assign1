@@ -4,13 +4,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assign1.databinding.TicketLayoutBinding
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 
 class GalleryViewAdapter: RecyclerView.Adapter<GalleryViewAdapter.MyViewHolder>() {
-    var datalist = mutableListOf<GalleryData>()
+    var datalist = mutableListOf<TicketData>()
 
     inner class MyViewHolder(private val binding: TicketLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(galleryData: GalleryData){
+        fun bind(ticketData: TicketData){
+//            binding.dateTextView.text = ticketData.ticketDate
+//            binding.timeTextView.text = ticketData.ticketTime
+//            binding.costTextView.text = ticketData.ticketEntreeFee
+//            binding.MenuTextView.text = ticketData.ticketMenu
+
+            val barcodeEncoder = BarcodeEncoder()
+            val bitmap = barcodeEncoder.encodeBitmap("123456", BarcodeFormat.CODE_128, 750, 120)
+            binding.BarcodeImageView.setImageBitmap(bitmap)
 //            binding.photoCardImageView.setImageResource(galleryData.photoCardImageResource)
 //            binding.movieNameTextView.text = galleryData.movieName
 //            binding.scoreTextView.text = galleryData.movieScore

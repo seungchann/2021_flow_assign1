@@ -5,295 +5,268 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#242424"
+        tools:layout_editor_absoluteX="-105dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:id="@+id/ticketLayerImageView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1.3"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundView"
+        app:layout_constraintDimensionRatio="1:1.55"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/backgroundView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundView"
+        app:layout_constraintVertical_bias="0.497"
         app:srcCompat="@drawable/ticket_layer" />
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/BarcodeImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="INVITATION CARD"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="38dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/ticketLayerImageView"
+        app:layout_constraintEnd_toEndOf="@+id/ticketLayerImageView"
+        app:layout_constraintStart_toStartOf="@+id/ticketLayerImageView" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You've invited           's party."
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
-        android:text="Host"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        android:text="Date:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Time:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Menu:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Address:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Entry fee:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/shareTextView"
+        android:id="@+id/partyNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="SHARE YOUR PARTY"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="WELCOME PARTY"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView1" />
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="KAIST N1 BLDG. 114"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView3" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:text="DEC. 31. 2021"
-        android:textColor="#bc5508"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="P.M. 08:00 ~ 12:00"
-        android:textColor="#bc5508"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
         android:text="15,000 ₩"
-        android:textColor="#bc5508"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView4" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="카이스트 N1 114호"
-        android:textColor="#bc5508"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.05"
+        android:text="31 DEC 2021"
+        android:textAlignment="viewEnd"
+        android:textColor="#424242"
+        android:textSize="13dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/timeTextView"
+        app:layout_constraintTop_toTopOf="@+id/partyNameTextView" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="스테이크\n파스타\n와인"
-        android:textColor="#bc5508"
-        android:textSize="16sp"
+        android:layout_marginEnd="23dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.07"
+        android:text="8 PM"
+        android:textAlignment="viewEnd"
+        android:textColor="#424242"
+        android:textSize="11dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintBottom_toTopOf="@+id/dateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/ticketLayerImageView" />
 
-    <ImageView
-        android:id="@+id/QRImageView"
-        android:layout_width="100dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/profileImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/shareTextView"
-        app:srcCompat="@drawable/star" />
+    <TextView
+        android:id="@+id/TitleTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="INVITED TO"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/ticketLayerImageView"
+        app:layout_constraintTop_toTopOf="@+id/ticketLayerImageView" />
 
-    <ImageView
-        android:id="@+id/profileImageView4"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@+id/profileImageView2"
-        app:layout_constraintTop_toBottomOf="@+id/profileTextView2"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+    <TextView
+        android:id="@+id/TitleTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="MEMBERS"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/partyNameTextView" />
 
-    <ImageView
+    <TextView
+        android:id="@+id/TitleTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="ADDRESS"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView2" />
+
+    <TextView
+        android:id="@+id/titleTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="ENTRY FEE"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView3" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView1"
         android:layout_width="40dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/shareTextView"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toStartOf="@+id/TitleTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/TitleTextView2" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView2"
         android:layout_width="40dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
         app:layout_constraintStart_toEndOf="@+id/profileImageView1"
-        app:layout_constraintTop_toTopOf="@+id/profileImageView1"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView3"
         android:layout_width="40dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="@+id/profileImageView1"
-        app:layout_constraintTop_toBottomOf="@+id/profileTextView1"
-        app:srcCompat="@android:drawable/checkbox_on_background" />
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView2"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView3"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
 
     <TextView
-        android:id="@+id/profileTextView3"
-        android:layout_width="0dp"
+        android:id="@+id/profileTextView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name3"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/profileImageView3"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/profileImageView3"
-        app:layout_constraintTop_toBottomOf="@+id/profileImageView3" />
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView1"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView1"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView1" />
 
     <TextView
         android:id="@+id/profileTextView2"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name2"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        android:textStyle="normal"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
         app:layout_constraintEnd_toEndOf="@+id/profileImageView2"
         app:layout_constraintStart_toStartOf="@+id/profileImageView2"
         app:layout_constraintTop_toBottomOf="@+id/profileImageView2" />
 
     <TextView
-        android:id="@+id/profileTextView4"
-        android:layout_width="0dp"
+        android:id="@+id/profileTextView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name4"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/profileImageView4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/profileImageView4"
-        app:layout_constraintTop_toBottomOf="@+id/profileImageView4" />
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView3"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView3" />
 
     <TextView
-        android:id="@+id/profileTextView1"
-        android:layout_width="0dp"
+        android:id="@+id/profileTextView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name1"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/profileImageView1"
-        app:layout_constraintStart_toStartOf="@+id/profileImageView1"
-        app:layout_constraintTop_toBottomOf="@+id/profileImageView1" />
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView4"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView4"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

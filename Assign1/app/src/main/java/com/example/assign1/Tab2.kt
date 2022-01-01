@@ -5,13 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.assign1.databinding.FragmentTab1Binding
 import com.example.assign1.databinding.FragmentTab2Binding
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-import kotlinx.android.synthetic.main.gallery_list.view.*
 
 class Tab2 : Fragment() {
     private lateinit var binding: FragmentTab2Binding
@@ -20,7 +15,7 @@ class Tab2 : Fragment() {
     private val MIN_SCALE = 0.85f // 뷰가 몇퍼센트로 줄어들 것인지
     private val MIN_ALPHA = 0.5f // 어두워지는 정도를 나타낸 듯 하다.
 
-    var mDatas = mutableListOf<GalleryData>()
+    var mDatas = mutableListOf<TicketData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,15 +42,9 @@ class Tab2 : Fragment() {
     }
 
     fun initializelist(){ //임의로 데이터 넣어서 만들어봄
-        mDatas = mutableListOf<GalleryData>()
+        mDatas = mutableListOf<TicketData>()
         with(mDatas){
-            add(GalleryData(R.drawable.spiderman,"9.6","스파이더맨-노 웨이 홈", "#액션", "#어드벤처"))
-            add(GalleryData(R.drawable.happynewyear,"9.0","해피 뉴 이어", "#로맨스", "#멜로"))
-            add(GalleryData(R.drawable.kingsman,"8.7","킹스맨-퍼스트 에이전트", "#액션", "#시리즈"))
-            add(GalleryData(R.drawable.matrix,"6.8","매트릭스-리저렉션", "#액션", "#SF"))
-            add(GalleryData(R.drawable.drivemycar,"9.4","드라이브 마이 카", "#드라마", "#감동"))
-            add(GalleryData(R.drawable.lamb,"8.7","램", "#호러", "#스릴러"))
-            add(GalleryData(R.drawable.amelie,"9.4","아멜리에", "#코미디", "#환타지"))
+            add(TicketData("DEC.31. 2021","P.M. 08:00 ~ 12:00","15,000 ₩","카이스트 N1 114호","스테이크\n파스타\n와인","",0,0,1,2,"","","",""))
         }
     }
 
