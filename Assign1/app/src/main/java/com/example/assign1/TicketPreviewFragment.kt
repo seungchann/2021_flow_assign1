@@ -14,7 +14,6 @@ class TicketPreviewFragment: Fragment(){
     lateinit var timeTextView: TextView
     lateinit var entreeFeeTextView: TextView
     lateinit var addressTextView: TextView
-    lateinit var menuTextView: TextView
     lateinit var titleTextView: TextView
 
     override fun onCreateView(

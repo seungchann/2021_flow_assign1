@@ -2,23 +2,15 @@ package com.example.assign1
 
 import android.app.Activity
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.activity.OnBackPressedCallback
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.assign1.MainActivity
-import com.example.assign1.R
-import java.lang.reflect.Member
-import java.util.*
-import kotlin.math.ceil
 import kotlin.math.floor
 
 class Tab3 : Fragment() {
@@ -110,7 +102,7 @@ class Tab3 : Fragment() {
         override fun getCount(): Int = 6
         override fun getItem(position: Int): Fragment {
             return when(position){
-                0 -> TitleFormRragment()
+                0 -> TitleFormFragment()
                 1 -> DateTimeFormFragment()
                 2 -> MemberFormFragment()
                 3 -> FeeFormFragment()

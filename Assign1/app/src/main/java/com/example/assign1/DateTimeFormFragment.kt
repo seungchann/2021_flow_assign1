@@ -47,7 +47,9 @@ class DateTimeFormFragment: Fragment(){
 
         val timeListener = object: TimePickerDialog.OnTimeSetListener{
             override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
-                val res = "$p1:$p2"
+                val min: String = if (p2 == 0) "00" else p2 as String
+                // AM, PM 설정하기
+                val res = "$p1:$min"
                 mainActivity.sharedTicketData.ticketTime = res
                 mainActivity.update()
                 timeButton.text = res

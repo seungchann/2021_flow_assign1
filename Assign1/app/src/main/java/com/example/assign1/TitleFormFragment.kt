@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 
-class TitleFormRragment: Fragment(){
+class TitleFormFragment: Fragment(){
 
     lateinit var mainActivity: MainActivity
 
