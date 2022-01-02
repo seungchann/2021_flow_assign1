@@ -1,12 +1,19 @@
 package com.example.assign1
 
+import android.content.Context
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.assign1.Tab3
 import com.example.assign1.TicketPreviewFragment
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.File
+import java.lang.reflect.Type
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     // Tab3에서 Tab2로 Ticket Data를 옮길 때 사용하는 전역 변수 (Fragment -> Activity -> Fragment 통신)
     var sharedTicketData: TicketData = TicketData(0,"","","","","",0,0,0,0,"","","","")
+    lateinit var sharedTicketBarcode: Bitmap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,25 +85,103 @@ class MainActivity : AppCompatActivity() {
         // Tab3에서 마지막 페이지 도달했을 때(입력 완료 했을때) 호출됨.
         // 전체 ticket data list에 append한다.
 
-        ticketDataList.add(
-            TicketData(
-                sharedTicketData.layerColorResource,
-                sharedTicketData.ticketDate,
-                sharedTicketData.ticketTime,
-                sharedTicketData.ticketEntryFee,
-                sharedTicketData.ticketAddress,
-                sharedTicketData.ticketHost,
-                sharedTicketData.profileImageResource1,
-                sharedTicketData.profileImageResource2,
-                sharedTicketData.profileImageResource3,
-                sharedTicketData.profileImageResource4,
-                sharedTicketData.profileName1,
-                sharedTicketData.profileName2,
-                sharedTicketData.profileName3,
-                sharedTicketData.profileName4
-            ) )
+        val newTicketData: TicketData = TicketData(
+            sharedTicketData.layerColorResource,
+            sharedTicketData.ticketDate,
+            sharedTicketData.ticketTime,
+            sharedTicketData.ticketEntryFee,
+            sharedTicketData.ticketAddress,
+            sharedTicketData.ticketHost,
+            sharedTicketData.profileImageResource1,
+            sharedTicketData.profileImageResource2,
+            sharedTicketData.profileImageResource3,
+            sharedTicketData.profileImageResource4,
+            sharedTicketData.profileName1,
+            sharedTicketData.profileName2,
+            sharedTicketData.profileName3,
+            sharedTicketData.profileName4
+        )
+
+        ticketDataList.add(newTicketData)
+
+        val gson = Gson()
+
+        var jsonString = loadFromInnerStorage("tickets.json")
+        val arrayTicketDataType = object : TypeToken<ArrayList<TicketData>>() {}.type
+        var tickets: ArrayList<TicketData> = ArrayList()
+
+        if (jsonString != "") {
+            tickets = gson.fromJson(jsonString, arrayTicketDataType)
+        }
+        tickets.add(newTicketData)
+
+        val newJsonString: String = gson.toJson(tickets)
+        saveToInnerStorage("tickets.json", newJsonString)
     }
 
+    fun loadFromInnerStorage(filename: String): String {
+        val file = File(this.filesDir, filename)
+        if (!file.exists()) {
+            file.createNewFile()
+            file.writeText("")
+        }
+        val fileInputStream = this.openFileInput(filename)
+        return fileInputStream.reader().readText()
+    }
+
+    fun saveToInnerStorage(filename: String, newString: String) {
+        val file = File(this.filesDir, filename)
+        if (file.exists()) {
+            file.createNewFile()
+            file.writeText(newString)
+        }
+    }
+
+    fun removeContactData(filename: String, position: Int) {
+        val gson = Gson()
+
+        var jsonString = loadFromInnerStorage(filename)
+        val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
+        var profiles: ArrayList<ProfileData> = ArrayList()
+
+        if (jsonString != "") {
+            profiles = gson.fromJson(jsonString, arrayProfileDataType)
+        }
+
+        profiles.removeAt(position)
+
+        val newJsonString: String = gson.toJson(profiles)
+
+        saveToInnerStorage(filename, newJsonString)
+    }
+
+
+    fun initialLoadFromInnerStorage() {
+        var jsonString = loadFromInnerStorage("tickets.json")
+        if (jsonString != "") {
+            val gson = Gson()
+            val arrayTicketDataType = object : TypeToken<Array<TicketData>>() {}.type
+            var ticketDatas: Array<TicketData> = gson.fromJson(jsonString, arrayTicketDataType)
+            ticketDatas.forEachIndexed { index, ticketData ->
+                ticketDataList.add(TicketData(
+                    ticketData.layerColorResource,
+                    ticketData.ticketDate,
+                    ticketData.ticketTime,
+                    ticketData.ticketEntryFee,
+                    ticketData.ticketAddress,
+                    ticketData.ticketHost,
+                    ticketData.profileImageResource1,
+                    ticketData.profileImageResource2,
+                    ticketData.profileImageResource3,
+                    ticketData.profileImageResource4,
+                    ticketData.profileName1,
+                    ticketData.profileName2,
+                    ticketData.profileName3,
+                    ticketData.profileName4
+                ))
+            }
+        }
+    }
 
 }
 

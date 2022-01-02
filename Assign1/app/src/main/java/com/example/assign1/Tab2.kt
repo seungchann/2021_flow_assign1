@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.assign1.databinding.FragmentTab2Binding
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class Tab2 : Fragment() {
     private lateinit var binding: FragmentTab2Binding
@@ -35,7 +37,7 @@ class Tab2 : Fragment() {
     }
 
     fun initProfileRecyclerView(){
-        val adapter = TicketViewAdapter() //어댑터 객체 만듦
+        val adapter = TicketViewAdapter(mainActivity) //어댑터 객체 만듦
         binding.ticketViewPager.adapter = adapter
         binding.ticketViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
         binding.ticketViewPager.setPageTransformer(ZoomOutPageTransformer())
@@ -44,11 +46,6 @@ class Tab2 : Fragment() {
     }
 
     fun initializelist(){ //임의로 데이터 넣어서 만들어봄
-//        with(mainActivity.ticketDataList){
-//            add(TicketData(R.drawable.ticket_layer_blue))
-//            add(TicketData(R.drawable.ticket_layer_green))
-//            add(TicketData(R.drawable.ticket_layer_pink))
-//            add(TicketData(R.drawable.ticket_layer_black))
-//        }
+
     }
 }

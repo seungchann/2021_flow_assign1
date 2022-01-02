@@ -25,8 +25,6 @@ class Tab3 : Fragment() {
         mainActivity = context as MainActivity
     }
 
-
-
     val posY = arrayListOf(590, 500, 360, -130, -320, -1700, -1700)
 
     override fun onCreateView(

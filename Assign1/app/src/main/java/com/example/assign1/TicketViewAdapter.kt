@@ -1,5 +1,6 @@
 package com.example.assign1
 
+import android.app.Activity
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,8 +10,9 @@ import com.example.assign1.databinding.TicketLayoutBinding
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
 
-class TicketViewAdapter: RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() {
+class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() {
     var datalist = mutableListOf<TicketData>()
+    val mainActivity: MainActivity = mContext as MainActivity
 
     inner class MyViewHolder(private val binding: TicketLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
@@ -38,16 +40,13 @@ class TicketViewAdapter: RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() 
             binding.timeTextView.text = ticketData.ticketTime
             binding.costTextView.text = ticketData.ticketEntryFee
             binding.partyNameTextView.text = ticketData.ticketHost
+            binding.addressTextView.text = ticketData.ticketAddress
 
-            val barcodeEncoder = BarcodeEncoder()
-            val bitmap = barcodeEncoder.encodeBitmap("123456", BarcodeFormat.CODE_128, 750, 120)
-            binding.BarcodeImageView.setImageBitmap(bitmap)
-            setupColor(ticketData.layerColorResource)
-//            binding.photoCardImageView.setImageResource(galleryData.photoCardImageResource)
-//            binding.movieNameTextView.text = galleryData.movieName
-//            binding.scoreTextView.text = galleryData.movieScore
-//            binding.genreTextView1.text = galleryData.movieGenre1
-//            binding.genreTextView2.text = galleryData.movieGenre2
+            binding.profileTextView1.text = ticketData.profileName1
+
+//            val ticketBarcode = BarcodeEncoder().encodeBitmap(mainActivity.loadFromInnerStorage("tickets.json"), BarcodeFormat.CODE_128, 750, 120)
+//            binding.BarcodeImageView.setImageBitmap(ticketBarcode)
+//            setupColor(ticketData.layerColorResource)
         }
     }
 
