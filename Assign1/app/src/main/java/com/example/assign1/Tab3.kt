@@ -2,6 +2,7 @@ package com.example.assign1
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import kotlin.math.floor
 
 class Tab3 : Fragment() {
     private lateinit var callback: OnBackPressedCallback
-    private lateinit var mPager: ViewPager
+    private lateinit var mPager: FormViewPager
 
     // Fragment간 공유를 위한 Shared Variable
     lateinit var mainActivity: MainActivity
@@ -27,7 +28,7 @@ class Tab3 : Fragment() {
 
 
 
-    val posY = arrayListOf(590, 500, 360, -130, -320, -1700, -1700)
+    val posY = arrayListOf(360, 360, -130, -320, -320, -1700, -1700)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +48,7 @@ class Tab3 : Fragment() {
         val ticketOffsetY = 300F
 
         mPager.addOnPageChangeListener( object: ViewPager.OnPageChangeListener{
+
             override fun onPageScrollStateChanged(state: Int) {
 
             }
@@ -67,10 +69,14 @@ class Tab3 : Fragment() {
             override fun onPageSelected(position: Int) {
                 if(position==5){
                     mainActivity.addTicket()
-                    mPager.isLongClickable = false
+                    mainActivity.sharedTicketData = TicketData(0,"","","","","",
+                        0,0,0,0,"","","","")
+                    mPager.setPagingEnabled(false)
                 }
             }
         }  )
+
+        mainActivity.update()
 
         return view
 
@@ -90,6 +96,8 @@ class Tab3 : Fragment() {
             override fun handleOnBackPressed() {
                 if(mPager.currentItem == 0) {
                     activity.finish()
+                } else if(mPager.currentItem == 5) {
+                    (activity as MainActivity).refreshTab3()
                 } else {
                     mPager.currentItem -= 1
                 }

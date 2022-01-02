@@ -19,6 +19,8 @@ import java.util.*
 class DateTimeFormFragment: Fragment(){
     val monthName = arrayListOf("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC")
 
+
+
     lateinit var mainActivity: MainActivity
 
     override fun onAttach(context: Context) {
@@ -36,6 +38,9 @@ class DateTimeFormFragment: Fragment(){
         val dateButton = view.findViewById<Button>(R.id.date_button)
         val timeButton = view.findViewById<Button>(R.id.time_button)
 
+        if( mainActivity.sharedTicketData.ticketDate != "") dateButton.text = mainActivity.sharedTicketData.ticketDate
+        if( mainActivity.sharedTicketData.ticketTime != "") timeButton.text = mainActivity.sharedTicketData.ticketTime
+
         val dateListener = object: DatePickerDialog.OnDateSetListener {
             override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
                 val res = "$p3 " + monthName[p2] + " $p1"
@@ -47,9 +52,8 @@ class DateTimeFormFragment: Fragment(){
 
         val timeListener = object: TimePickerDialog.OnTimeSetListener{
             override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
-                val min: String = if (p2 == 0) "00" else p2 as String
                 // AM, PM 설정하기
-                val res = "$p1:$min"
+                val res = timeFormatter(p1, p2)
                 mainActivity.sharedTicketData.ticketTime = res
                 mainActivity.update()
                 timeButton.text = res
@@ -74,6 +78,30 @@ class DateTimeFormFragment: Fragment(){
         )
 
         return view
+    }
+
+    private fun timeFormatter(h:Int, m:Int): String {
+        var hString = ""
+        var mString = ""
+        var ampm = ""
+
+        hString = when {
+            h==0 -> "12"
+            h<=12 -> "$h"
+            else -> (h-12).toString()
+        }
+
+        mString = when {
+            m<=9 -> "0$m"
+            else -> "$m"
+        }
+
+        ampm = when {
+            h<=11 -> "AM"
+            else -> "PM"
+        }
+
+        return "$hString:$mString $ampm"
     }
 
 
