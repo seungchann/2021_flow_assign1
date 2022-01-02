@@ -44,11 +44,11 @@ class Tab2 : Fragment() {
     }
 
     fun initializelist(){ //임의로 데이터 넣어서 만들어봄
-        with(mainActivity.ticketDataList){
-            add(TicketData(R.drawable.ticket_layer_blue))
-            add(TicketData(R.drawable.ticket_layer_green))
-            add(TicketData(R.drawable.ticket_layer_pink))
-            add(TicketData(R.drawable.ticket_layer_black))
-        }
+//        with(mainActivity.ticketDataList){
+//            add(TicketData(R.drawable.ticket_layer_blue))
+//            add(TicketData(R.drawable.ticket_layer_green))
+//            add(TicketData(R.drawable.ticket_layer_pink))
+//            add(TicketData(R.drawable.ticket_layer_black))
+//        }
     }
 }

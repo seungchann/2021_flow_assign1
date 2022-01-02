@@ -34,10 +34,10 @@ class TicketViewAdapter: RecyclerView.Adapter<TicketViewAdapter.MyViewHolder>() 
         }
 
         fun bind(ticketData: TicketData){
-//            binding.dateTextView.text = ticketData.ticketDate
-//            binding.timeTextView.text = ticketData.ticketTime
-//            binding.costTextView.text = ticketData.ticketEntreeFee
-//            binding.MenuTextView.text = ticketData.ticketMenu
+            binding.dateTextView.text = ticketData.ticketDate
+            binding.timeTextView.text = ticketData.ticketTime
+            binding.costTextView.text = ticketData.ticketEntryFee
+            binding.partyNameTextView.text = ticketData.ticketHost
 
             val barcodeEncoder = BarcodeEncoder()
             val bitmap = barcodeEncoder.encodeBitmap("123456", BarcodeFormat.CODE_128, 750, 120)
