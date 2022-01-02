@@ -64,13 +64,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
-    <androidx.viewpager.widget.ViewPager
+    <com.example.assign1.FormViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         app:layout_constraintBottom_toBottomOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

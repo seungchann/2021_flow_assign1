@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.doOnAttach
 import androidx.fragment.app.Fragment
 import com.example.assign1.Tab3
 import com.example.assign1.TicketPreviewFragment
@@ -11,9 +12,9 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_tab2.*
 import java.io.File
 import java.lang.reflect.Type
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -129,6 +130,19 @@ class MainActivity : AppCompatActivity() {
         return fileInputStream.reader().readText()
     }
 
+    // TRANSITION BY MAINACTIVITY
+
+    // Tab3 fragment 내에서 생성 완료 후 '처음으로' 눌렀을 때 원래 fragment를 죽이기 위해 만든 함수.
+    fun refreshTab3(){
+        replaceView(Tab3())
+    }
+
+    // Tab3 티켓 생성 완료 후 Tab2로 이동하는 함수. 가장 최근에 생성한 티켓으로 currentItem을 옮긴다.
+    fun transitionToTab2(){
+        tab2 = Tab2()
+        tab_layout.getTabAt(1)?.select()
+    }
+    
     fun saveToInnerStorage(filename: String, newString: String) {
         val file = File(this.filesDir, filename)
         if (file.exists()) {
