@@ -27,7 +27,6 @@ class Tab3 : Fragment() {
     }
 
 
-
     val posY = arrayListOf(360, 360, -130, -320, -320, -1700, -1700)
 
     override fun onCreateView(

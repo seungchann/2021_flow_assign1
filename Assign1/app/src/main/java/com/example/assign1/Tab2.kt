@@ -11,6 +11,8 @@ import androidx.core.view.doOnAttach
 import androidx.viewpager2.widget.ViewPager2
 import com.example.assign1.databinding.FragmentTab2Binding
 import kotlinx.android.synthetic.main.fragment_tab2.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class Tab2 : Fragment() {
     private lateinit var binding: FragmentTab2Binding
@@ -42,8 +44,8 @@ class Tab2 : Fragment() {
 //        binding.ticketViewPager.currentItem = mainActivity.ticketDataList.size - 1
 //    }
 
-    fun initProfileRecyclerView() {
-        val adapter = TicketViewAdapter() //어댑터 객체 만듦
+    fun initProfileRecyclerView(){
+        val adapter = TicketViewAdapter(mainActivity) //어댑터 객체 만듦
         binding.ticketViewPager.adapter = adapter
         binding.ticketViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL // 방향을 가로로
         binding.ticketViewPager.setPageTransformer(ZoomOutPageTransformer())
@@ -60,7 +62,6 @@ class Tab2 : Fragment() {
 //            add(TicketData(R.drawable.ticket_layer_pink))
 //            add(TicketData(R.drawable.ticket_layer_black))
 //        }
-    }
 //
 //    fun getTicketViewPager(): ViewPager2 {
 //        return binding.ticketViewPager
