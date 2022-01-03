@@ -45,7 +45,7 @@
                 android:id="@+id/color_black"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/icon_color_black" />
             <TextView
                 android:layout_marginVertical="10dp"
                 android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
                 android:id="@+id/color_blue"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/icon_color_blue" />
             <TextView
                 android:layout_marginVertical="10dp"
                 android:layout_width="wrap_content"
@@ -81,7 +81,7 @@
                 android:id="@+id/color_green"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/icon_color_green" />
             <TextView
                 android:layout_marginVertical="10dp"
                 android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                 android:id="@+id/color_pink"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/icon_color_pink" />
             <TextView
                 android:layout_marginVertical="10dp"
                 android:layout_width="wrap_content"
