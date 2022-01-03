@@ -21,13 +21,22 @@
         <entry key="..\:/Users/SUBEEN/StudioProjects/2021_flow_assign1/Assign1/app/src/main/res/layout/fragment_tab2.xml" value="0.20625" />
         <entry key="..\:/Users/SUBEEN/StudioProjects/2021_flow_assign1/Assign1/app/src/main/res/layout/fragment_tab3.xml" value="0.2046875" />
         <entry key="..\:/Users/SUBEEN/StudioProjects/2021_flow_assign1/Assign1/app/src/main/res/layout/profile_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SUBEEN/StudioProjects/2021_flow_assign1/Assign1/app/src/main/res/layout/profile_modal_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SUBEEN/StudioProjects/2021_flow_assign1/Assign1/app/src/main/res/layout/ticket_layout.xml" value="0.4" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_profile_add_data.xml" value="0.24375" />
+        <entry key="app/src/main/res/layout/activity_profile_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_profile_icon_select.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/activity_profile_search_address.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/form_confirm.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_date_time.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_fee.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_member_modal.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_post.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_title.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_add_profile_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_data_detail.xml" value="0.35989583333333336" />
-        <entry key="app/src/main/res/layout/fragment_profile_select_icon.xml" value="0.30480072463768115" />
-        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/fragment_tab1.xml" value="0.1447210903861048" />
         <entry key="app/src/main/res/layout/fragment_tab2.xml" value="0.4150962852545393" />
         <entry key="app/src/main/res/layout/fragment_tab3.xml" value="0.21197916666666666" />

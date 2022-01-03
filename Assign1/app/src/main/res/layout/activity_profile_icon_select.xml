@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileSelectIcon">
+    tools:context=".ProfileIconSelect">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⭐ 아이콘을 선택해주세요 ⭐"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/SelectIcon1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="25sp"/>
 
     <ImageView
         android:id="@+id/SelectIcon1"
@@ -55,6 +65,5 @@
         app:layout_constraintStart_toEndOf="@id/SelectIcon3"
         app:layout_constraintTop_toBottomOf="@+id/SelectIcon2"
         app:srcCompat="@drawable/icon_pink" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.example.assign1.ProfileIconSelect.Companion.ICON_REQUEST_CODE
 import com.example.assign1.ProfileSearchAddress.Companion.ADDRESS_REQUEST_CODE
 import com.example.assign1.databinding.FragmentAddProfileDataBinding
 import com.google.gson.Gson
@@ -27,6 +28,11 @@ class AddProfileData : Fragment() {
 
     private lateinit var binding: FragmentAddProfileDataBinding
     val imm = App.context().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    lateinit var name:String
+    lateinit var phone:String
+    lateinit var add:String
+    lateinit var addDetail:String
+    var icon = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,24 +40,45 @@ class AddProfileData : Fragment() {
 
         binding.addPhoneFinishButton.setOnClickListener{
 
-            val name = binding.addNameEditText.text.toString()
-            val phone = binding.addPhoneEditText.text.toString()
-            val add = binding.addAddressText.text.toString()
-            val addDetail = binding.addDetailAddressText.text.toString()
+            name = binding.addNameEditText.text.toString()
+            phone = binding.addPhoneEditText.text.toString()
+            add = binding.addAddressText.text.toString()
+            addDetail = binding.addDetailAddressEditText.text.toString()
+            val builder = AlertDialog.Builder(this.context)
+
 
             if (name == "" || phone == ""|| add == "" || addDetail=="")
             {
-                val builder = AlertDialog.Builder(this.context)
-                builder.setTitle("경고").setMessage("모든 정보를 채워주세요").setPositiveButton("예",null)
+                builder.setTitle("잠시만요!!").setMessage("모든 정보를 채워주세요").setPositiveButton("예",null)
                 builder.create()
                 builder.show()
             }
             else
             {
-                addContactData(name,phone,add+" "+addDetail)
-                val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
-                transaction.replace(R.id.frameLayout,Tab1())
-                transaction.commit()
+                if(phone.length != 11)
+                {
+                    builder.setTitle("잠시만요!!").setMessage("정확한 번호를 입력해주세요").setPositiveButton("예",null)
+                    builder.create()
+                    builder.show()
+                }
+                else {
+
+                    var totalAddress: String
+                    if (addDetail == "")
+                        totalAddress = add
+                    else {
+                        while (addDetail[0].equals(" ")) {
+                            addDetail = addDetail.substring(1)
+                        } // 공백 없애주기
+                        totalAddress = add + " " + addDetail
+                    }
+
+                    addContactData(name, phone, totalAddress, icon)
+                    val transaction =
+                        requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
+                    transaction.replace(R.id.frameLayout, Tab1())
+                    transaction.commit()
+                }
             }
 
         }
@@ -62,9 +89,7 @@ class AddProfileData : Fragment() {
         }
 
 
-
         binding.addNameEditText.setOnKeyListener{ v, keyCode, event ->
-            println("@@@@@@@@in setonKeyListener")
             if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
             {
                 imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
@@ -73,6 +98,23 @@ class AddProfileData : Fragment() {
             }
             true
         }
+
+        binding.addDetailAddressEditText.setOnKeyListener{ v, keyCode, event ->
+            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
+            {
+                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
+                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
+
+            }
+            true
+        }
+
+        binding.addImageView.setOnClickListener {
+            Intent(this.context,ProfileIconSelect().javaClass).apply {
+                startActivityForResult(this, ICON_REQUEST_CODE)
+            }
+        }
+
 
     }
 
@@ -86,6 +128,22 @@ class AddProfileData : Fragment() {
                         binding.addAddressText.text = addressData
                 }
             }
+
+            ICON_REQUEST_CODE ->{
+                if (resultCode == RESULT_OK){
+                    val iconData = intent?.extras?.getInt("icon")
+                    if(iconData != null) {
+                        icon = iconData
+                        when (iconData) {
+                            0 -> binding.addImageView.setImageResource(R.drawable.icon_black)
+                            1 -> binding.addImageView.setImageResource(R.drawable.icon_blue)
+                            2 -> binding.addImageView.setImageResource(R.drawable.icon_green)
+                            3 -> binding.addImageView.setImageResource(R.drawable.icon_pink)
+                        }
+                    }
+                }
+            }
+
         }
     }
 
@@ -102,14 +160,14 @@ class AddProfileData : Fragment() {
     }
 
     // profile data 추가 method
-    fun addContactData(name: String,phone: String,address: String ){
+    fun addContactData(name: String,phone: String,address: String,icon: Int ){
 
         val gson = Gson()
 
         var jsonString = loadFromInnerStorge("profiles.json")
         val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
         var profiles: ArrayList<ProfileData> = ArrayList()
-        val newData = ProfileData(name,phone,address) // 새로운 data object 생성
+        val newData = ProfileData(name,phone,address,icon) // 새로운 data object 생성
 
         if (jsonString != "")
         {
