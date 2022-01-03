@@ -1,9 +1,14 @@
 package com.example.assign1
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assign1.databinding.ProfileListBinding
+
 
 class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>() {
     var datalist = mutableListOf<ProfileData>()
@@ -12,7 +17,7 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
 
         fun bind(profileData: ProfileData){
             binding.profileNameTv.text = profileData.profileName
-            binding.profileNumberTv.text = profileData.profileNumber
+            binding.profileNumberTv.text = insertBarInPhoneNumber(profileData.profileNumber)
         }
     }
 
@@ -28,5 +33,28 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
     //적절한 데이터를 가져와서 그 데이터를 사용하여 뷰홀더의 레이아웃 채움
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(datalist[position])
+        holder.itemView.setOnClickListener {
+//                Intent(App.context(),ProfileDataDetail().apply{ putExtra("data") addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }.run { App.context().startActivity(this) })
+            val nextIntent = Intent (App.context(), ProfileDataDetail().javaClass)
+            nextIntent.putExtra("name",datalist[holder.adapterPosition].profileName)
+            nextIntent.putExtra("phone",datalist[holder.adapterPosition].profileNumber)
+            nextIntent.putExtra("address",datalist[holder.adapterPosition].profileAddress)
+//            getActivity(App.context(),).supportFragmentManager.beginTransaction().add(R.id.frameLayout,ProfileDataDetail()).commit()
+//            val fragment = ProfileDataDetail()
+//            getActivity()?.onFragmentChange(3)
+
+        }
     }
+
+    // profile data 삭제하는 함
+    fun removeData(position: Int){
+        datalist.removeAt(position)
+        removeContactData(position)
+        notifyItemRemoved(position)
+    }
+
+}
+
+fun insertBarInPhoneNumber(initString: String) : String{
+    return initString.substring(0,3) + " - " +initString.substring(3,7) + " - " + initString.substring(7,)
 }
