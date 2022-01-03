@@ -69,14 +69,14 @@ class Tab3 : Fragment() {
                 if(position==5){
                     mainActivity.addTicket()
                     mainActivity.sharedTicketData = TicketData(0,"","","","","",
-                        0,0,0,0,"","","","")
+                        4,4,4,4,"","","","")
                     mPager.setPagingEnabled(false)
                 }
             }
         }  )
 
         mainActivity.sharedTicketData = TicketData(0,"","","","","",
-            0,0,0,0,"","","","")
+            4,4,4,4,"","","","")
         mainActivity.update()
 
         return view

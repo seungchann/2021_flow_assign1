@@ -91,6 +91,7 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
                             1 -> R.drawable.icon_blue
                             2 -> R.drawable.icon_green
                             3 -> R.drawable.icon_pink
+                            4 -> R.drawable.icon_defult_add
                             else -> R.drawable.ic_launcher_background
                         }
                     )

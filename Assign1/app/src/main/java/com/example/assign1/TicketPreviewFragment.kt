@@ -65,12 +65,13 @@ class TicketPreviewFragment: Fragment(){
         imageView4.setImageResource(getResource(data.profileImageResource4))
     }
 
-    fun getResource(i: Int):Int{
+    private fun getResource(i: Int):Int{
         return when (i) {
             0 -> R.drawable.icon_black
             1 -> R.drawable.icon_blue
             2 -> R.drawable.icon_green
             3 -> R.drawable.icon_pink
+            4 -> R.drawable.icon_defult
             else -> R.drawable.ic_launcher_background
         }
     }
