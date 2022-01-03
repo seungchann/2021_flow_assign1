@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initialLoadFromInnerStorage()
         tab1 = Tab1()
         tab2 = Tab2()
         tab3 = Tab3()
@@ -176,23 +177,24 @@ class MainActivity : AppCompatActivity() {
             val gson = Gson()
             val arrayTicketDataType = object : TypeToken<Array<TicketData>>() {}.type
             var ticketDatas: Array<TicketData> = gson.fromJson(jsonString, arrayTicketDataType)
-            ticketDatas.forEachIndexed { index, ticketData ->
-                ticketDataList.add(TicketData(
-                    ticketData.layerColorResource,
-                    ticketData.ticketDate,
-                    ticketData.ticketTime,
-                    ticketData.ticketEntryFee,
-                    ticketData.ticketAddress,
-                    ticketData.ticketHost,
-                    ticketData.profileImageResource1,
-                    ticketData.profileImageResource2,
-                    ticketData.profileImageResource3,
-                    ticketData.profileImageResource4,
-                    ticketData.profileName1,
-                    ticketData.profileName2,
-                    ticketData.profileName3,
-                    ticketData.profileName4
-                ))
+            ticketDatas.forEach { ticketData ->
+                ticketDataList.add(ticketData)
+//                ticketDataList.add(TicketData(
+//                    ticketData.layerColorResource,
+//                    ticketData.ticketDate,
+//                    ticketData.ticketTime,
+//                    ticketData.ticketEntryFee,
+//                    ticketData.ticketAddress,
+//                    ticketData.ticketHost,
+//                    ticketData.profileImageResource1,
+//                    ticketData.profileImageResource2,
+//                    ticketData.profileImageResource3,
+//                    ticketData.profileImageResource4,
+//                    ticketData.profileName1,
+//                    ticketData.profileName2,
+//                    ticketData.profileName3,
+//                    ticketData.profileName4
+//                ))
             }
         }
     }
