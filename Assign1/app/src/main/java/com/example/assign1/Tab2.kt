@@ -3,10 +3,8 @@ package com.example.assign1
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.view.doOnAttach
 import androidx.viewpager2.widget.ViewPager2
 import com.example.assign1.databinding.FragmentTab2Binding
@@ -25,6 +23,28 @@ class Tab2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    // action bar에 메뉴를 넣어줌
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_tab2, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    // 메뉴 선택시 profile add fragment로 이
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuSetting -> {
+                val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
+                transaction.replace(R.id.frameLayout, TicketSettingFragment())
+                transaction.addToBackStack("tab2")
+                transaction.commit()
+
+                return super.onOptionsItemSelected(item)
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onCreateView(

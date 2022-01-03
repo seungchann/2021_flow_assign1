@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/layout/fragment_add_profile_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_data_detail.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_profile_select_icon.xml" value="0.30480072463768115" />
+        <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/fragment_tab1.xml" value="0.1447210903861048" />
         <entry key="app/src/main/res/layout/fragment_tab2.xml" value="0.4150962852545393" />
         <entry key="app/src/main/res/layout/fragment_tab3.xml" value="0.21197916666666666" />
@@ -28,8 +29,9 @@
         <entry key="app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/profile_get_address.xml" value="0.2078125" />
         <entry key="app/src/main/res/layout/profile_list.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/ticket_layout.xml" value="0.5622908533398591" />
+        <entry key="app/src/main/res/layout/ticket_layout.xml" value="0.5158428390367554" />
         <entry key="app/src/main/res/menu/menu_tab1.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/menu_tab2.xml" value="0.4006539699206537" />
       </map>
     </option>
   </component>
