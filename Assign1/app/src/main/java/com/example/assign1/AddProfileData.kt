@@ -89,25 +89,22 @@ class AddProfileData : Fragment() {
         }
 
 
-        binding.addNameEditText.setOnKeyListener{ v, keyCode, event ->
-            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
-            {
-                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
-                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
+//        binding.addDetailAddressEditText.setOnKeyListener{ v, keyCode, event ->
+//            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
+//            {
+//                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
+//                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
+//
+//            }
+//            true
+//        }
 
-            }
-            true
-        }
-
-        binding.addDetailAddressEditText.setOnKeyListener{ v, keyCode, event ->
-            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
-            {
-                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
-                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
-
-            }
-            true
-        }
+//        binding.addDetailAddressEditText.setOnEditorActionListener { textView, i, keyEvent ->
+//            if (i == EditorInfo.IME_ACTION_DONE){
+//                 true
+//            }
+//             false
+//        }
 
         binding.addImageView.setOnClickListener {
             Intent(this.context,ProfileIconSelect().javaClass).apply {

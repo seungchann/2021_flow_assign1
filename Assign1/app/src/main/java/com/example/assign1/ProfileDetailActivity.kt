@@ -13,9 +13,15 @@ class ProfileDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_detail)
 
-        detailNameShowTextView.text = intent.getSerializableExtra("name").toString()
-        detailPhoneShowTextView.text = insertBarInPhoneNumber(intent.getSerializableExtra("phone").toString())
-        detailAddressShowTextView.text = intent.getSerializableExtra("address").toString()
+        var address = intent.getSerializableExtra("address").toString()
+        val token = address.split(")")
+        address = token[0] + ")"
+        val detailAddress = token[1]
+
+        detailNameShowTextView.setText(intent.getSerializableExtra("name").toString())
+        detailPhoneShowTextView.setText(insertBarInPhoneNumber(intent.getSerializableExtra("phone").toString()))
+        detailAddressShowTextView.setText(address)
+        detailDetailAddressShowTextView.setText(detailAddress)
         val iconData = intent.getSerializableExtra("icon")
         when (iconData) {
             0 -> detailImageView.setImageResource(R.drawable.icon_black)
@@ -25,6 +31,7 @@ class ProfileDetailActivity : AppCompatActivity() {
         }
 
     }
+
 }
 
 
