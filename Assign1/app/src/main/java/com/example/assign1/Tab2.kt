@@ -1,5 +1,6 @@
 package com.example.assign1
 
+import android.animation.AnimatorSet
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
@@ -37,6 +38,7 @@ class Tab2 : Fragment() {
         when (item.itemId) {
             R.id.menuSetting -> {
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
+                transaction.setCustomAnimations(R.anim.back_animator, R.anim.front_animator)
                 transaction.replace(R.id.frameLayout, TicketSettingFragment())
                 transaction.addToBackStack("tab2")
                 transaction.commit()
