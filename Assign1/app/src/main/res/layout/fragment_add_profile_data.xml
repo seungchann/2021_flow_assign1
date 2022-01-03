@@ -18,7 +18,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="300dp"
 
-        app:srcCompat="@mipmap/ic_launcher_round"/>
+        app:srcCompat="@drawable/icon_blue"/>
 
     <TextView
         android:id="@+id/addNameTextView"
@@ -36,7 +36,7 @@
     <EditText
         android:id="@+id/addNameEditText"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="이름을 입력해주세요."
@@ -61,7 +61,7 @@
     <EditText
         android:id="@+id/addPhoneEditText"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="번호 입력해주세요."
@@ -85,30 +85,54 @@
         app:layout_constraintTop_toBottomOf="@id/addPhoneTextView" />
 
 
-    <EditText
-        android:id="@+id/addAddressEditText"
-        android:layout_width="200dp"
+    <TextView
+        android:id="@+id/addAddressText"
+        android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="주소를 입력해주세요."
-        android:maxLength="11"
         android:textColor="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="@+id/addAddressTextView"
+        app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintLeft_toRightOf="@+id/addAddressTextView"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/addAddressTextView" />
+        app:layout_constraintTop_toTopOf="@+id/addAddressTextView"
+        app:layout_constraintVertical_bias="0.444"
+        android:hint="주소를 검색해주세요"/>
+
+    <EditText
+        android:id="@+id/addDetailAddressText"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/cardview_dark_background"
+        app:layout_constraintLeft_toLeftOf="@+id/addAddressText"
+        app:layout_constraintTop_toBottomOf="@+id/addAddressText"
+        android:hint="상세 주소를 입력해주세요"/>
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addAddressText"
+        app:layout_constraintLeft_toRightOf="@+id/addAddressText"
+        app:layout_constraintTop_toTopOf="@+id/addAddressText"
+        android:layout_marginLeft="5dp"
+        android:text="search"
+        android:textSize="10sp"
+        />
+
+
 
     <Button
         android:id="@+id/addPhoneFinishButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="FINISH"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addAddressEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/addDetailAddressText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

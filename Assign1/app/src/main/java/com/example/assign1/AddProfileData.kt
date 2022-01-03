@@ -1,6 +1,10 @@
 package com.example.assign1
 
+import android.app.Activity.RESULT_OK
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.fragment.app.Fragment
@@ -10,6 +14,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.example.assign1.ProfileSearchAddress.Companion.ADDRESS_REQUEST_CODE
 import com.example.assign1.databinding.FragmentAddProfileDataBinding
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -26,49 +31,61 @@ class AddProfileData : Fragment() {
         super.onCreate(savedInstanceState)
         binding = FragmentAddProfileDataBinding.inflate(layoutInflater)
 
-        var name:String
-        var phone:String
-        var add:String
         binding.addPhoneFinishButton.setOnClickListener{
 
-            name = binding.addNameEditText.text.toString()
-            phone = binding.addPhoneEditText.text.toString()
-            add = binding.addAddressEditText.text.toString()
-            addContactData(name,phone,add)
+            val name = binding.addNameEditText.text.toString()
+            val phone = binding.addPhoneEditText.text.toString()
+            val add = binding.addAddressText.text.toString()
+            val addDetail = binding.addDetailAddressText.text.toString()
 
-            val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
-            transaction.replace(R.id.frameLayout,Tab1())
-//            transaction.disallowAddToBackStack()
-            transaction.commit()
+            if (name == "" || phone == ""|| add == "" || addDetail=="")
+            {
+                val builder = AlertDialog.Builder(this.context)
+                builder.setTitle("경고").setMessage("모든 정보를 채워주세요").setPositiveButton("예",null)
+                builder.create()
+                builder.show()
+            }
+            else
+            {
+                addContactData(name,phone,add+" "+addDetail)
+                val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
+                transaction.replace(R.id.frameLayout,Tab1())
+                transaction.commit()
+            }
 
         }
-//        binding.addNameEditText.setOnKeyListener{ v, keyCode, event ->
-////            when{((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN)) ->
-////                    {
-//////                        println("######in when stmt")
-//////                        imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
-////                        Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
-////                    }
-////
-////                else -> false
-////            }
-//
-//            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)
-//            {
-//                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
-//            }
-////
-
-//        binding.addNameEditText.setOnEditorActionListener { _, keyCode, event ->
-//            if((event.action : -1) == KeyEvent.ACTION_DOWN)
-//            {
-//                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
-//        }
-//
-//        }
+        binding.searchButton.setOnClickListener {
+            Intent(this.context,ProfileSearchAddress().javaClass).apply {
+                startActivityForResult(this,ADDRESS_REQUEST_CODE)
+            }
+        }
 
 
 
+        binding.addNameEditText.setOnKeyListener{ v, keyCode, event ->
+            println("@@@@@@@@in setonKeyListener")
+            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
+            {
+                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
+                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
+
+            }
+            true
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
+        when(requestCode){
+            ADDRESS_REQUEST_CODE ->{
+                if (resultCode == RESULT_OK){
+                    val addressData = intent?.extras?.getString("data")
+                    if(addressData != null)
+                        binding.addAddressText.text = addressData
+                }
+            }
+        }
     }
 
     override fun onCreateView(
@@ -82,7 +99,6 @@ class AddProfileData : Fragment() {
         binding = FragmentAddProfileDataBinding.inflate(layoutInflater)
         super.onDestroyView()
     }
-
 
 }
 
@@ -105,5 +121,4 @@ fun addContactData(name: String,phone: String,address: String ){
 
     val newJsonString:String = gson.toJson(profiles) // 새로운 연락처가 추가된 jsonString
     saveToInnerStorage("profiles.json",newJsonString)
-
 }
