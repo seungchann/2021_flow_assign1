@@ -105,8 +105,6 @@ class MainActivity : AppCompatActivity() {
             sharedTicketData.profileName4
         )
 
-        ticketDataList.add(newTicketData)
-
         val gson = Gson()
 
         var jsonString = loadFromInnerStorage("tickets.json")
@@ -116,10 +114,12 @@ class MainActivity : AppCompatActivity() {
         if (jsonString != "") {
             tickets = gson.fromJson(jsonString, arrayTicketDataType)
         }
-        tickets.add(newTicketData)
+        tickets.add(0, newTicketData)
 
         val newJsonString: String = gson.toJson(tickets)
         saveToInnerStorage("tickets.json", newJsonString)
+
+        ticketDataList = tickets
     }
 
     fun loadFromInnerStorage(filename: String): String {
@@ -130,6 +130,24 @@ class MainActivity : AppCompatActivity() {
         }
         val fileInputStream = this.openFileInput(filename)
         return fileInputStream.reader().readText()
+    }
+
+    fun removeTicketData(filename: String, position: Int) {
+        val gson = Gson()
+
+        var jsonString = loadFromInnerStorage(filename)
+        val arrayProfileDataType = object : TypeToken<ArrayList<TicketData>>() {}.type
+        var tickets: ArrayList<TicketData> = ArrayList()
+
+        if (jsonString != "") {
+            tickets = gson.fromJson(jsonString, arrayProfileDataType)
+        }
+
+        tickets.removeAt(position)
+
+        val newJsonString: String = gson.toJson(tickets)
+
+        saveToInnerStorage(filename, newJsonString)
     }
 
     // TRANSITION BY MAINACTIVITY
@@ -152,25 +170,6 @@ class MainActivity : AppCompatActivity() {
             file.writeText(newString)
         }
     }
-
-    fun removeContactData(filename: String, position: Int) {
-        val gson = Gson()
-
-        var jsonString = loadFromInnerStorage(filename)
-        val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
-        var profiles: ArrayList<ProfileData> = ArrayList()
-
-        if (jsonString != "") {
-            profiles = gson.fromJson(jsonString, arrayProfileDataType)
-        }
-
-        profiles.removeAt(position)
-
-        val newJsonString: String = gson.toJson(profiles)
-
-        saveToInnerStorage(filename, newJsonString)
-    }
-
 
     fun initialLoadFromInnerStorage() {
         val gson = Gson()

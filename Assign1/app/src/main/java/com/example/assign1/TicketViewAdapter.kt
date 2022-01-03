@@ -43,6 +43,14 @@ class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdap
             binding.addressTextView.text = ticketData.ticketAddress
 
             binding.profileTextView1.text = ticketData.profileName1
+            binding.profileTextView2.text = ticketData.profileName2
+            binding.profileTextView3.text = ticketData.profileName3
+            binding.profileTextView4.text = ticketData.profileName4
+
+            binding.profileImageView1.setImageResource(getResource(ticketData.profileImageResource1))
+            binding.profileImageView2.setImageResource(getResource(ticketData.profileImageResource2))
+            binding.profileImageView3.setImageResource(getResource(ticketData.profileImageResource3))
+            binding.profileImageView4.setImageResource(getResource(ticketData.profileImageResource4))
 
 //            val ticketBarcode = BarcodeEncoder().encodeBitmap(mainActivity.loadFromInnerStorage("tickets.json"), BarcodeFormat.CODE_128, 750, 120)
 //            binding.BarcodeImageView.setImageBitmap(ticketBarcode)
@@ -62,5 +70,18 @@ class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdap
     //적절한 데이터를 가져와서 그 데이터를 사용하여 뷰홀더의 레이아웃 채움
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(datalist[position])
+    }
+
+
+    // Image code -> Image resource 헬퍼 펑션
+    private fun getResource(i: Int):Int{
+        return when (i) {
+            0 -> R.drawable.icon_black
+            1 -> R.drawable.icon_blue
+            2 -> R.drawable.icon_green
+            3 -> R.drawable.icon_pink
+            4 -> R.drawable.icon_defult
+            else -> R.drawable.ic_launcher_background
+        }
     }
 }
