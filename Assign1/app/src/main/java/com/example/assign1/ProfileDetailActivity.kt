@@ -16,6 +16,13 @@ class ProfileDetailActivity : AppCompatActivity() {
         detailNameShowTextView.text = intent.getSerializableExtra("name").toString()
         detailPhoneShowTextView.text = insertBarInPhoneNumber(intent.getSerializableExtra("phone").toString())
         detailAddressShowTextView.text = intent.getSerializableExtra("address").toString()
+        val iconData = intent.getSerializableExtra("icon")
+        when (iconData) {
+            0 -> detailImageView.setImageResource(R.drawable.icon_black)
+            1 -> detailImageView.setImageResource(R.drawable.icon_blue)
+            2 -> detailImageView.setImageResource(R.drawable.icon_green)
+            3 -> detailImageView.setImageResource(R.drawable.icon_pink)
+        }
 
     }
 }

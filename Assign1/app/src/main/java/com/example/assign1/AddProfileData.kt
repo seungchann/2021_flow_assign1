@@ -54,7 +54,7 @@ class AddProfileData : Fragment() {
             }
             else
             {
-                addContactData(name,phone,add+" "+addDetail)
+                addContactData(name,phone,add+" "+addDetail,icon)
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
                 transaction.replace(R.id.frameLayout,Tab1())
                 transaction.commit()
@@ -139,14 +139,14 @@ class AddProfileData : Fragment() {
     }
 
     // profile data 추가 method
-    fun addContactData(name: String,phone: String,address: String ){
+    fun addContactData(name: String,phone: String,address: String,icon: Int ){
 
         val gson = Gson()
 
         var jsonString = loadFromInnerStorge("profiles.json")
         val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
         var profiles: ArrayList<ProfileData> = ArrayList()
-        val newData = ProfileData(name,phone,address) // 새로운 data object 생성
+        val newData = ProfileData(name,phone,address,icon) // 새로운 data object 생성
 
         if (jsonString != "")
         {

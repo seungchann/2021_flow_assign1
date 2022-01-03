@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assign1.databinding.ProfileListBinding
+import kotlinx.android.synthetic.main.activity_profile_detail.*
 
 
 class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>() {
@@ -18,6 +19,12 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
         fun bind(profileData: ProfileData){
             binding.profileNameTv.text = profileData.profileName
             binding.profileNumberTv.text = insertBarInPhoneNumber(profileData.profileNumber)
+            when (profileData.profileIcon) {
+                0 -> binding.profilePhotoImg.setImageResource(R.drawable.icon_black)
+                1 -> binding.profilePhotoImg.setImageResource(R.drawable.icon_blue)
+                2 -> binding.profilePhotoImg.setImageResource(R.drawable.icon_green)
+                3 -> binding.profilePhotoImg.setImageResource(R.drawable.icon_pink)
+            }
         }
     }
 
@@ -40,6 +47,7 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
             nextIntent.putExtra("name",datalist[holder.adapterPosition].profileName)
             nextIntent.putExtra("phone",datalist[holder.adapterPosition].profileNumber)
             nextIntent.putExtra("address",datalist[holder.adapterPosition].profileAddress)
+            nextIntent.putExtra("icon",datalist[holder.adapterPosition].profileIcon)
             nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             nextIntent.run { App.context().startActivity(this) }
 
