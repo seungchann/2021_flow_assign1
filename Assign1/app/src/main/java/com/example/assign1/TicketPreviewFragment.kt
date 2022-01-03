@@ -1,5 +1,7 @@
 package com.example.assign1
 
+import android.graphics.Color
+import android.media.Image
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +11,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.assign1.R
 import com.example.assign1.TicketData
+import kotlinx.android.synthetic.main.ticket_layout.*
 
 class TicketPreviewFragment: Fragment(){
+    lateinit var backgroundColorImageView: ImageView
+//    lateinit var ticketLayerImageView: ImageView
     lateinit var dateTextView: TextView
     lateinit var timeTextView: TextView
     lateinit var entreeFeeTextView: TextView
@@ -32,6 +37,8 @@ class TicketPreviewFragment: Fragment(){
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.ticket_layout, container, false)
+        backgroundColorImageView = view.findViewById(R.id.backgroundView)
+//        ticketLayerImageView = view.findViewById(R.id.ticketLayerImageView)
         titleTextView = view.findViewById(R.id.partyNameTextView)
         dateTextView = view.findViewById(R.id.dateTextView)
         timeTextView = view.findViewById(R.id.timeTextView)
@@ -50,6 +57,8 @@ class TicketPreviewFragment: Fragment(){
     }
 
     fun update(data: TicketData){
+        backgroundColorImageView.setBackgroundColor(Color.parseColor(getBGHexCode(data.layerColorResource)))
+//        ticketLayerImageView.setImageResource(data.layerColorResource)
         titleTextView.text = data.ticketHost
         dateTextView.text = data.ticketDate
         timeTextView.text = data.ticketTime
@@ -73,6 +82,16 @@ class TicketPreviewFragment: Fragment(){
             3 -> R.drawable.icon_pink
             4 -> R.drawable.icon_defult
             else -> R.drawable.ic_launcher_background
+        }
+    }
+
+    private fun getBGHexCode(i: Int):String{
+        return when (i) {
+            R.drawable.ticket_layer_black -> "#242424"
+            R.drawable.ticket_layer_green -> "#09685b"
+            R.drawable.ticket_layer_pink -> "#ff4770"
+            R.drawable.ticket_layer_blue -> "#3e3dae"
+            else -> "#242424"
         }
     }
 }
