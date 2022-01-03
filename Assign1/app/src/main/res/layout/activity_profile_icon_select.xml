@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileSelectIcon">
+    tools:context=".ProfileIconSelect">
+
 
     <ImageView
         android:id="@+id/SelectIcon1"
@@ -55,6 +56,5 @@
         app:layout_constraintStart_toEndOf="@id/SelectIcon3"
         app:layout_constraintTop_toBottomOf="@+id/SelectIcon2"
         app:srcCompat="@drawable/icon_pink" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

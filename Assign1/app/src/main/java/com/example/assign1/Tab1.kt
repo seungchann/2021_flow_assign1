@@ -19,9 +19,6 @@ class Tab1 : Fragment() {
     private lateinit var binding: FragmentTab1Binding
     private lateinit var adapter: ContactViewAdapter
 
-    var mDatas = mutableListOf<ProfileData>()
-    var jsonString: String = loadFromInnerStorge("profiles.json") // jsonfile에서 가져온 string 저장
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +38,8 @@ class Tab1 : Fragment() {
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
                 transaction.replace(R.id.frameLayout, AddProfileData())
                 transaction.addToBackStack("tab1")
-//                transaction.disallowAddToBackStack()
                 transaction.commit()
-//                val nextIntent = Intent (App.context(), ProfileAddDataActivity().javaClass)
-//                nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                nextIntent.run { App.context().startActivity(this) }
+
 
                 return super.onOptionsItemSelected(item)
             }
@@ -103,10 +97,6 @@ class Tab1 : Fragment() {
                             itemView.bottom.toFloat()
                         )
                         c.drawRect(background, paint)
-
-//                        icon = BitmapFactory.decodeResource(resources, R.drawable.ic_menu_delete)
-//                        val iconDst = RectF(itemView.right.toFloat() - 3 - width, itemView.top.toFloat() + width, itemView.right.toFloat()-width, itemView.bottom.toFloat() - width)
-//                        c.drawBitmap(icon,null,iconDst,null)
                     }
                 }
 

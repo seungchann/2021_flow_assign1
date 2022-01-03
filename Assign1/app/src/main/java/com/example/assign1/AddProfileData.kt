@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import com.example.assign1.ProfileIconSelect.Companion.ICON_REQUEST_CODE
 import com.example.assign1.ProfileSearchAddress.Companion.ADDRESS_REQUEST_CODE
 import com.example.assign1.databinding.FragmentAddProfileDataBinding
 import com.google.gson.Gson
@@ -27,6 +28,11 @@ class AddProfileData : Fragment() {
 
     private lateinit var binding: FragmentAddProfileDataBinding
     val imm = App.context().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    lateinit var name:String
+    lateinit var phone:String
+    lateinit var add:String
+    lateinit var addDetail:String
+    var icon = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +40,10 @@ class AddProfileData : Fragment() {
 
         binding.addPhoneFinishButton.setOnClickListener{
 
-            val name = binding.addNameEditText.text.toString()
-            val phone = binding.addPhoneEditText.text.toString()
-            val add = binding.addAddressText.text.toString()
-            val addDetail = binding.addDetailAddressText.text.toString()
+            name = binding.addNameEditText.text.toString()
+            phone = binding.addPhoneEditText.text.toString()
+            add = binding.addAddressText.text.toString()
+            addDetail = binding.addDetailAddressEditText.text.toString()
 
             if (name == "" || phone == ""|| add == "" || addDetail=="")
             {
@@ -62,9 +68,7 @@ class AddProfileData : Fragment() {
         }
 
 
-
         binding.addNameEditText.setOnKeyListener{ v, keyCode, event ->
-            println("@@@@@@@@in setonKeyListener")
             if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
             {
                 imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
@@ -73,6 +77,23 @@ class AddProfileData : Fragment() {
             }
             true
         }
+
+        binding.addDetailAddressEditText.setOnKeyListener{ v, keyCode, event ->
+            if ((keyCode == KeyEvent.KEYCODE_ENTER) && (event.action == KeyEvent.ACTION_DOWN))
+            {
+                imm.hideSoftInputFromWindow(binding.addNameEditText.windowToken,0)
+                Toast.makeText(App.context(),"enter clicked",Toast.LENGTH_SHORT).show()
+
+            }
+            true
+        }
+
+        binding.addImageView.setOnClickListener {
+            Intent(this.context,ProfileIconSelect().javaClass).apply {
+                startActivityForResult(this, ICON_REQUEST_CODE)
+            }
+        }
+
 
     }
 
@@ -86,6 +107,22 @@ class AddProfileData : Fragment() {
                         binding.addAddressText.text = addressData
                 }
             }
+
+            ICON_REQUEST_CODE ->{
+                if (resultCode == RESULT_OK){
+                    val iconData = intent?.extras?.getInt("icon")
+                    if(iconData != null) {
+                        icon = iconData
+                        when (iconData) {
+                            0 -> binding.addImageView.setImageResource(R.drawable.icon_black)
+                            1 -> binding.addImageView.setImageResource(R.drawable.icon_blue)
+                            2 -> binding.addImageView.setImageResource(R.drawable.icon_green)
+                            3 -> binding.addImageView.setImageResource(R.drawable.icon_pink)
+                        }
+                    }
+                }
+            }
+
         }
     }
 
