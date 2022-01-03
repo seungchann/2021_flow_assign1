@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/title_form_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="파티 멤버를 정해주세요"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_form_description2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="코로나 19 방역 지침에 따라 최대 4인까지 가능합니다."
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_form_description" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_form_description2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/member_1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:layout_marginVertical="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Host" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/member_2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:layout_marginVertical="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/member_3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:layout_marginVertical="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/member_4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@mipmap/ic_launcher" />
+            <TextView
+                android:layout_marginVertical="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
