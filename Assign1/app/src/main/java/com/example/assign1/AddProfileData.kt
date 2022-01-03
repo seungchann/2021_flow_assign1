@@ -44,20 +44,41 @@ class AddProfileData : Fragment() {
             phone = binding.addPhoneEditText.text.toString()
             add = binding.addAddressText.text.toString()
             addDetail = binding.addDetailAddressEditText.text.toString()
+            val builder = AlertDialog.Builder(this.context)
+
 
             if (name == "" || phone == ""|| add == "" || addDetail=="")
             {
-                val builder = AlertDialog.Builder(this.context)
-                builder.setTitle("경고").setMessage("모든 정보를 채워주세요").setPositiveButton("예",null)
+                builder.setTitle("잠시만요!!").setMessage("모든 정보를 채워주세요").setPositiveButton("예",null)
                 builder.create()
                 builder.show()
             }
             else
             {
-                addContactData(name,phone,add+" "+addDetail,icon)
-                val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
-                transaction.replace(R.id.frameLayout,Tab1())
-                transaction.commit()
+                if(phone.length != 11)
+                {
+                    builder.setTitle("잠시만요!!").setMessage("정확한 번호를 입력해주세요").setPositiveButton("예",null)
+                    builder.create()
+                    builder.show()
+                }
+                else {
+
+                    var totalAddress: String
+                    if (addDetail == "")
+                        totalAddress = add
+                    else {
+                        while (addDetail[0].equals(" ")) {
+                            addDetail = addDetail.substring(1)
+                        } // 공백 없애주기
+                        totalAddress = add + " " + addDetail
+                    }
+
+                    addContactData(name, phone, totalAddress, icon)
+                    val transaction =
+                        requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
+                    transaction.replace(R.id.frameLayout, Tab1())
+                    transaction.commit()
+                }
             }
 
         }

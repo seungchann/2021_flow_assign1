@@ -16,10 +16,15 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22395833333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_profile_add_data.xml" value="0.24375" />
-        <entry key="app/src/main/res/layout/activity_profile_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_profile_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_profile_icon_select.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/activity_profile_search_address.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/form_confirm.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_date_time.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_fee.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/form_member_modal.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_post.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/form_title.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_add_profile_data.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile_data_detail.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_profile_select_icon.xml" value="0.30480072463768115" />

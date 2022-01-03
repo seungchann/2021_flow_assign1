@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:textColor="#353535"
         app:layout_constraintTop_toTopOf="@id/profilePhotoImg"
         app:layout_constraintLeft_toRightOf="@+id/profilePhotoImg"
         android:text="Name"

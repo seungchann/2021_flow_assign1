@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileDetailActivity"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".ProfileDetailActivity">
 
 
-    <ImageView
-        android:id="@+id/detailImageView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="15dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="300dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        app:srcCompat="@mipmap/ic_launcher_round"/>
+        <ImageView
+            android:id="@+id/detailImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/icon_black" />
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/detailNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이름 :"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/detailImageView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginTop="50dp"
+        android:text="⭐️ 이름 :"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
 
 
     <TextView
         android:id="@+id/detailNameShowTextView"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="5dp"
         android:textColor="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="@+id/detailNameTextView"
         app:layout_constraintLeft_toRightOf="@+id/detailNameTextView"
@@ -50,9 +57,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        android:text="번호 :"
+        android:layout_marginTop="40dp"
+        android:text="⭐️ 번호 :"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailNameTextView" />
 
@@ -61,8 +69,7 @@
         android:id="@+id/detailPhoneShowTextView"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="5dp"
         android:inputType="phone"
         android:maxLength="11"
         android:textColor="@color/cardview_dark_background"
@@ -76,8 +83,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="30dp"
-        android:text="주소 :"
+        android:layout_marginTop="40dp"
+        android:text="⭐️ 주소 :"
+        android:textStyle="bold"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detailPhoneTextView" />
@@ -87,8 +95,7 @@
         android:id="@+id/detailAddressShowTextView"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="5dp"
         android:inputType="phone"
         android:maxLength="11"
         android:textColor="@color/cardview_dark_background"
