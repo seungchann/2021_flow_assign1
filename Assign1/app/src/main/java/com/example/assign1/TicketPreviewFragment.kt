@@ -15,6 +15,11 @@ class TicketPreviewFragment: Fragment(){
     lateinit var entreeFeeTextView: TextView
     lateinit var addressTextView: TextView
     lateinit var titleTextView: TextView
+    lateinit var name1TextView: TextView
+    lateinit var name2TextView: TextView
+    lateinit var name3TextView: TextView
+    lateinit var name4TextView: TextView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +32,10 @@ class TicketPreviewFragment: Fragment(){
         timeTextView = view.findViewById(R.id.timeTextView)
         entreeFeeTextView = view.findViewById(R.id.costTextView)
         addressTextView = view.findViewById(R.id.addressTextView)
+        name1TextView = view.findViewById(R.id.profileTextView1)
+        name2TextView = view.findViewById(R.id.profileTextView2)
+        name3TextView = view.findViewById(R.id.profileTextView3)
+        name4TextView = view.findViewById(R.id.profileTextView4)
 
         return view
     }
@@ -37,5 +46,9 @@ class TicketPreviewFragment: Fragment(){
         timeTextView.text = data.ticketTime
         entreeFeeTextView.text = data.ticketEntryFee
         addressTextView.text = data.ticketAddress
+        name1TextView.text = data.profileName1
+        name2TextView.text = data.profileName2
+        name3TextView.text = data.profileName3
+        name4TextView.text = data.profileName4
     }
 }
