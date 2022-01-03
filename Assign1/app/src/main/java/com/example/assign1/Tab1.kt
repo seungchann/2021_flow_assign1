@@ -1,5 +1,6 @@
 package com.example.assign1
 
+import android.content.Intent
 import android.graphics.*
 import android.os.Bundle
 import android.view.*
@@ -39,8 +40,12 @@ class Tab1 : Fragment() {
             R.id.menuAdd -> {
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
                 transaction.replace(R.id.frameLayout, AddProfileData())
+                transaction.addToBackStack("tab1")
 //                transaction.disallowAddToBackStack()
                 transaction.commit()
+//                val nextIntent = Intent (App.context(), ProfileAddDataActivity().javaClass)
+//                nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                nextIntent.run { App.context().startActivity(this) }
 
                 return super.onOptionsItemSelected(item)
             }

@@ -33,15 +33,15 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
     //적절한 데이터를 가져와서 그 데이터를 사용하여 뷰홀더의 레이아웃 채움
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(datalist[position])
+
         holder.itemView.setOnClickListener {
 //                Intent(App.context(),ProfileDataDetail().apply{ putExtra("data") addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }.run { App.context().startActivity(this) })
-            val nextIntent = Intent (App.context(), ProfileDataDetail().javaClass)
+            val nextIntent = Intent (App.context(), ProfileDetailActivity().javaClass)
             nextIntent.putExtra("name",datalist[holder.adapterPosition].profileName)
             nextIntent.putExtra("phone",datalist[holder.adapterPosition].profileNumber)
             nextIntent.putExtra("address",datalist[holder.adapterPosition].profileAddress)
-//            getActivity(App.context(),).supportFragmentManager.beginTransaction().add(R.id.frameLayout,ProfileDataDetail()).commit()
-//            val fragment = ProfileDataDetail()
-//            getActivity()?.onFragmentChange(3)
+            nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            nextIntent.run { App.context().startActivity(this) }
 
         }
     }
