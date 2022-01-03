@@ -60,7 +60,6 @@ class Tab1 : Fragment() {
         // Inflate the layout for this fragment
         adapter = ContactViewAdapter()
         binding = FragmentTab1Binding.inflate(layoutInflater)
-        initializelist()
         initProfileRecyclerView()
 
         //swipe delete 기능 구현
@@ -133,21 +132,9 @@ class Tab1 : Fragment() {
     }
 
     fun initProfileRecyclerView() {
-        adapter.datalist = mDatas //데이터 넣어줌
+        adapter.datalist = (activity as MainActivity).profileDataList //데이터 넣어줌
         binding.contactRecyclerView.adapter = adapter //리사이클러뷰에 어댑터 연결
         binding.contactRecyclerView.layoutManager = LinearLayoutManager(activity) //레이아웃 매니저 연결
-    }
-
-    fun initializelist() { //임의로 데이터 넣어서 만들어봄
-        mDatas = mutableListOf<ProfileData>()
-        if (jsonString != "") {
-            val gson = Gson()
-            val arrayProfileDataType = object : TypeToken<Array<ProfileData>>() {}.type
-            var profiles: Array<ProfileData> = gson.fromJson(jsonString, arrayProfileDataType)
-            profiles.forEachIndexed { index, profileData -> mDatas.add(ProfileData(profileData.profileName,profileData.profileNumber,profileData.profileAddress)
-                )
-            }
-        }
     }
 }
 

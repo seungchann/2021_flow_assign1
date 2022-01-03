@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     // Tab2에서 보여줄 TicketData 리스트 (read by Tab2, written by Tab3)
     var ticketDataList = mutableListOf<TicketData>()
+    var profileDataList = mutableListOf<ProfileData>()
 
     // Tab3에서 Tab2로 Ticket Data를 옮길 때 사용하는 전역 변수 (Fragment -> Activity -> Fragment 통신)
     var sharedTicketData: TicketData = TicketData(0,"","","","","",0,0,0,0,"","","","")
@@ -172,13 +173,13 @@ class MainActivity : AppCompatActivity() {
 
 
     fun initialLoadFromInnerStorage() {
+        val gson = Gson()
         var jsonString = loadFromInnerStorage("tickets.json")
         if (jsonString != "") {
-            val gson = Gson()
+
             val arrayTicketDataType = object : TypeToken<Array<TicketData>>() {}.type
             var ticketDatas: Array<TicketData> = gson.fromJson(jsonString, arrayTicketDataType)
-            ticketDatas.forEach { ticketData ->
-                ticketDataList.add(ticketData)
+            ticketDatas.forEach { ticketData -> ticketDataList.add(ticketData) }
 //                ticketDataList.add(TicketData(
 //                    ticketData.layerColorResource,
 //                    ticketData.ticketDate,
@@ -195,9 +196,14 @@ class MainActivity : AppCompatActivity() {
 //                    ticketData.profileName3,
 //                    ticketData.profileName4
 //                ))
-            }
+        }
+
+        var jsonString2 = loadFromInnerStorage("profiles.json")
+        if (jsonString2 != "") {
+            val arrayProfileDataType = object : TypeToken<Array<ProfileData>>() {}.type
+            var profiles: Array<ProfileData> = gson.fromJson(jsonString2, arrayProfileDataType)
+            profiles.forEach { profileData -> profileDataList.add(profileData) }
         }
     }
-
 }
 

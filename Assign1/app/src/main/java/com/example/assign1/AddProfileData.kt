@@ -1,5 +1,6 @@
 package com.example.assign1
 
+import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
 import android.content.Context
@@ -100,25 +101,26 @@ class AddProfileData : Fragment() {
         super.onDestroyView()
     }
 
-}
+    // profile data 추가 method
+    fun addContactData(name: String,phone: String,address: String ){
 
-// profile data 추가 method
-fun addContactData(name: String,phone: String,address: String ){
-    val gson = Gson()
+        val gson = Gson()
 
-    var jsonString = loadFromInnerStorge("profiles.json")
-    val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
-    var profiles: ArrayList<ProfileData> = ArrayList()
-    val newData = ProfileData(name,phone,address) // 새로운 data object 생성
+        var jsonString = loadFromInnerStorge("profiles.json")
+        val arrayProfileDataType = object : TypeToken<ArrayList<ProfileData>>() {}.type
+        var profiles: ArrayList<ProfileData> = ArrayList()
+        val newData = ProfileData(name,phone,address) // 새로운 data object 생성
 
-    if (jsonString != "")
-    {
-        profiles = gson.fromJson(jsonString,arrayProfileDataType)
+        if (jsonString != "")
+        {
+            profiles = gson.fromJson(jsonString,arrayProfileDataType)
+        }
+
+        profiles.add(newData)
+        (activity as MainActivity).profileDataList = profiles.toMutableList()
+
+        val newJsonString:String = gson.toJson(profiles) // 새로운 연락처가 추가된 jsonString
+        saveToInnerStorage("profiles.json",newJsonString)
     }
 
-    profiles.add(newData)
-
-
-    val newJsonString:String = gson.toJson(profiles) // 새로운 연락처가 추가된 jsonString
-    saveToInnerStorage("profiles.json",newJsonString)
 }
