@@ -72,7 +72,7 @@ class Tab2 : Fragment() {
         binding.dotsIndicator.setViewPager2(binding.ticketViewPager)
 
 
-        adapter.datalist = mainActivity.ticketDataList.reversed().toMutableList() //데이터 넣어줌
+        adapter.datalist = mainActivity.ticketDataList//데이터 넣어줌
     }
 
     fun initializelist() { //임의로 데이터 넣어서 만들어봄
