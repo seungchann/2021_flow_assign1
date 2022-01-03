@@ -30,6 +30,12 @@ class ContactViewModalAdapter: RecyclerView.Adapter<ContactViewModalAdapter.MyVi
         fun bind(profileData: ProfileData){
             binding.profileNameTvModal.text = profileData.profileName
             binding.profileAddressTvModal.text = profileData.profileAddress
+            when (profileData.profileIcon) {
+                0 -> binding.profilePhotoImgModal.setImageResource(R.drawable.icon_black)
+                1 -> binding.profilePhotoImgModal.setImageResource(R.drawable.icon_blue)
+                2 -> binding.profilePhotoImgModal.setImageResource(R.drawable.icon_green)
+                3 -> binding.profilePhotoImgModal.setImageResource(R.drawable.icon_pink)
+            }
         }
     }
 

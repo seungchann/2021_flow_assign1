@@ -75,6 +75,8 @@ class Tab3 : Fragment() {
             }
         }  )
 
+        mainActivity.sharedTicketData = TicketData(0,"","","","","",
+            0,0,0,0,"","","","")
         mainActivity.update()
 
         return view

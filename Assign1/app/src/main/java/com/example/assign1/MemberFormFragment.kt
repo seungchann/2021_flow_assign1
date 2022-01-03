@@ -16,6 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 class MemberFormFragment: Fragment(), View.OnClickListener {
 
     lateinit var formNameView: Array<TextView>
+    lateinit var formCircleImageView: Array<CircleImageView>
     lateinit var previewName: Array<String>
 
     override fun onCreateView(
@@ -35,6 +36,13 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
             view.findViewById(R.id.member_2_name),
             view.findViewById(R.id.member_3_name),
             view.findViewById(R.id.member_4_name)
+        )
+
+        formCircleImageView = arrayOf(
+            view.findViewById<CircleImageView>(R.id.member_1),
+            view.findViewById<CircleImageView>(R.id.member_2),
+            view.findViewById<CircleImageView>(R.id.member_3) ,
+            view.findViewById<CircleImageView>(R.id.member_4)
         )
 
         previewName = arrayOf(
@@ -69,10 +77,23 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
             object : ContactViewModalAdapter.OnItemClickListener {
                 override fun onItemClick(v: View?, pos: Int) {
 
-                    val text = v?.findViewById<TextView>(R.id.profileNameTvModal)?.text.toString()
+                    val text = adapter.datalist[pos].profileName
+                    val imgSrc = adapter.datalist[pos].profileIcon
+                    val address = adapter.datalist[pos].profileAddress
+                        //v?.findViewById<TextView>(R.id.profileNameTvModal)?.text.toString()
                     //val src = v?.findViewById<ImageView>(R.id.profilePhotoImgModal)?.get
 
                     formNameView[idx].text = text
+
+                    formCircleImageView[idx].setImageResource(
+                        when (imgSrc) {
+                            0 -> R.drawable.icon_black
+                            1 -> R.drawable.icon_blue
+                            2 -> R.drawable.icon_green
+                            3 -> R.drawable.icon_pink
+                            else -> R.drawable.ic_launcher_background
+                        }
+                    )
 
                     when(idx){
                         0 -> (activity as MainActivity).sharedTicketData.profileName1 = text
@@ -80,6 +101,18 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
                         2 -> (activity as MainActivity).sharedTicketData.profileName3 = text
                         3 -> (activity as MainActivity).sharedTicketData.profileName4 = text
                         else -> Unit
+                    }
+
+                    when(idx){
+                        0 -> (activity as MainActivity).sharedTicketData.profileImageResource1 = imgSrc
+                        1 -> (activity as MainActivity).sharedTicketData.profileImageResource2 = imgSrc
+                        2 -> (activity as MainActivity).sharedTicketData.profileImageResource3 = imgSrc
+                        3 -> (activity as MainActivity).sharedTicketData.profileImageResource4 = imgSrc
+                        else -> Unit
+                    }
+
+                    if(idx == 0) {
+                        (activity as MainActivity).sharedTicketData.ticketAddress = address
                     }
 
                     (activity as MainActivity).update()
