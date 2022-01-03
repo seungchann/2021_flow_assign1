@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#242424"
+        tools:layout_editor_absoluteX="-105dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/ticketLayerImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/backgroundView"
+        app:layout_constraintDimensionRatio="1:1.55"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/backgroundView"
+        app:layout_constraintTop_toTopOf="@+id/backgroundView"
+        app:layout_constraintVertical_bias="0.497"
+        app:srcCompat="@drawable/ticket_layer_black" />
+
+    <ImageView
+        android:id="@+id/BarcodeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="38dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/ticketLayerImageView"
+        app:layout_constraintEnd_toEndOf="@+id/ticketLayerImageView"
+        app:layout_constraintStart_toStartOf="@+id/ticketLayerImageView" />
+
+    <TextView
+        android:id="@+id/partyNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="WELCOME PARTY"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView1" />
+
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="KAIST N1 BLDG. 114"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView3" />
+
+    <TextView
+        android:id="@+id/costTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="15,000 ₩"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView3"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView4" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.05"
+        android:text="31 DEC 2021"
+        android:textAlignment="viewEnd"
+        android:textColor="#424242"
+        android:textSize="13dp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/timeTextView"
+        app:layout_constraintTop_toTopOf="@+id/partyNameTextView" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="23dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.07"
+        android:text="8 PM"
+        android:textAlignment="viewEnd"
+        android:textColor="#424242"
+        android:textSize="11dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateTextView"
+        app:layout_constraintEnd_toEndOf="@+id/ticketLayerImageView" />
+
+    <TextView
+        android:id="@+id/titleTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="INVITED TO"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/ticketLayerImageView"
+        app:layout_constraintTop_toTopOf="@+id/ticketLayerImageView" />
+
+    <TextView
+        android:id="@+id/titleTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="MEMBERS"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/partyNameTextView" />
+
+    <TextView
+        android:id="@+id/titleTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="ADDRESS"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView2" />
+
+    <TextView
+        android:id="@+id/titleTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="-0.06"
+        android:text="ENTRY FEE"
+        android:textAlignment="viewStart"
+        android:textColor="#919191"
+        android:textSize="11dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView1"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView3" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView2" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView1"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView2"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:src="@drawable/ic_launcher_background"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toEndOf="@+id/profileImageView3"
+        app:layout_constraintTop_toTopOf="@+id/profileImageView1" />
+
+    <TextView
+        android:id="@+id/profileTextView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView1"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView1"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView1" />
+
+    <TextView
+        android:id="@+id/profileTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView2"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView2"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView2" />
+
+    <TextView
+        android:id="@+id/profileTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView3"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView3"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView3" />
+
+    <TextView
+        android:id="@+id/profileTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/yantramanav_medium"
+        android:letterSpacing="0.03"
+        android:text="NAME"
+        android:textAlignment="viewStart"
+        android:textColor="#212121"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageView4"
+        app:layout_constraintStart_toStartOf="@+id/profileImageView4"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageView4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
