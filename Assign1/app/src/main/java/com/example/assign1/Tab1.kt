@@ -98,6 +98,9 @@ class Tab1 : Fragment() {
                         )
                         c.drawRect(background, paint)
                     }
+                    icon = BitmapFactory.decodeResource(resources, R.drawable.icon_trash)
+                    val iconDst = RectF(itemView.right.toFloat() - 70  - width, itemView.top.toFloat() + width + 35, itemView.right.toFloat() - width, itemView.bottom.toFloat() - width - 35)
+                    c.drawBitmap(icon, null, iconDst, null)
                 }
 
                 super.onChildDraw(

@@ -96,9 +96,9 @@ class TicketSettingFragment : Fragment() {
 
                         // 휴지통 아이콘과 표시될 위치를 지정하고 비트맵을 그려줌
                         // 비트맵 이미지는 Image Asset 기능으로 추가하고 drawable 폴더에 위치하도록 함
-//                    icon = BitmapFactory.decodeResource(resources, R.drawable.ic_menu_delete)
-//                    val iconDst = RectF(itemView.right.toFloat() - 3  - width, itemView.top.toFloat() + width, itemView.right.toFloat() - width, itemView.bottom.toFloat() - width)
-//                    c.drawBitmap(icon, null, iconDst, null)
+                    icon = BitmapFactory.decodeResource(resources, R.drawable.icon_trash)
+                    val iconDst = RectF(itemView.right.toFloat() - 70  - width, itemView.top.toFloat() + width + 20, itemView.right.toFloat() - width, itemView.bottom.toFloat() - width - 20)
+                    c.drawBitmap(icon, null, iconDst, null)
                     }
                 }
 
