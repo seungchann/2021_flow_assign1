@@ -1,9 +1,11 @@
 package com.example.assign1
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.doOnAttach
 import androidx.fragment.app.Fragment
 import com.example.assign1.Tab3
@@ -11,6 +13,8 @@ import com.example.assign1.TicketPreviewFragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.android.material.tabs.TabLayout
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_tab2.*
 import java.io.File
@@ -199,5 +203,59 @@ class MainActivity : AppCompatActivity() {
             else -> "#242424"
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        when(requestCode){
+            49374 -> {
+                Toast.makeText(this, requestCode.toString(), Toast.LENGTH_SHORT).show()
+
+                val result: IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+                if(result != null){
+
+                    if(result.contents == null){
+                        Toast.makeText(this, "바코드 읽기를 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val ticketData = findTicketById(result.contents.toString())
+                        if( ticketData == null) {
+                            Toast.makeText(this, "바코드 읽기를 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                        } else {
+                            val fm = supportFragmentManager
+                            val fragment = fm.findFragmentById(R.id.frameLayout)
+
+                            sharedTicketData = ticketData
+                            update()
+                            (fragment as Tab3).mPager.setCurrentItem(5, false)
+                        }
+                    }
+                }
+            }
+            else -> super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+
+    fun findTicketById( name :String ): TicketData? {
+        for (ticketData in sampleTicketDatabase) {
+            if( ticketData.ticketHost == name ) return ticketData
+        }
+        return null
+    }
+
+    // TODO 더미 데이터 추가.
+
+    val sampleTicketDatabase = arrayListOf<TicketData>(
+        TicketData(
+            R.drawable.ticket_layer_pink,
+            "4 JAN 2022",
+            "12:00 AM",
+            "5000",
+            "KAIST N1, 110",
+            "12345678901234",
+            1,2,3,4,
+            "가","나","다","라"
+        )
+    )
+
+
 }
 
