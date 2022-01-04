@@ -1,10 +1,9 @@
 # Parcode  
 > Flow 4분반 팀1 (승찬, 수정, 수빈)  
 > 
-![Screenshot_20220104-204324_Parcode](https://user-images.githubusercontent.com/63276842/148055498-8ceb0d9e-1b10-40ae-9c80-5201cfa0941e.jpg)  
-![Screenshot_20220104-205158_Parcode](https://user-images.githubusercontent.com/63276842/148055626-a49176ba-7dc5-4e87-bcee-71ff6ccd50ae.jpg)  
-![Screenshot_20220104-204758_Parcode](https://user-images.githubusercontent.com/63276842/148055660-e92368cb-c29e-493f-b89d-7edc9cebe44f.jpg)  
-스크린샷 (Main화면, Tab1, Tab2, Tab3)  
+
+![MainPage](https://user-images.githubusercontent.com/63276842/148056550-1f43af05-117b-4e8d-b836-e8171faa55b6.png)  
+
 * 홈 파티를 위한 티켓을 생성해주는 Android 기반 어플리케이션입니다.  
 * 홈 파티 멤버들의 연락처와 주소를 저장할 수 있습니다.  
 * 티켓을 만들고, 바코드를 통해 멤버들과 공유가 가능합니다.  
