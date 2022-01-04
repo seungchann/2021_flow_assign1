@@ -2,12 +2,14 @@ package com.example.assign1
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -17,6 +19,8 @@ import kotlin.math.floor
 class Tab3 : Fragment() {
     private lateinit var callback: OnBackPressedCallback
     private lateinit var mPager: FormViewPager
+    private lateinit var background: ConstraintLayout
+    private lateinit var baseline: View
 
     // Fragment간 공유를 위한 Shared Variable
     lateinit var mainActivity: MainActivity
@@ -40,6 +44,8 @@ class Tab3 : Fragment() {
         val whiteBack = view.findViewById<View>(R.id.form_background)
         // Layout Constraint로 미리 정해진 값을 저장해둡니다.
         mPager = view.findViewById(R.id.pager)
+        background = view.findViewById(R.id.whole_thing)
+        baseline = view.findViewById(R.id.hole_front)
 
         val pagerAdapter = ScreenSlidePagerAdapter( mainActivity.supportFragmentManager )
         mPager.adapter = pagerAdapter
@@ -68,14 +74,14 @@ class Tab3 : Fragment() {
             override fun onPageSelected(position: Int) {
                 if(position==5){
                     mainActivity.addTicket()
-                    mainActivity.sharedTicketData = TicketData(0,"","","","","",
+                    mainActivity.sharedTicketData = TicketData(R.drawable.ticket_layer_black,"","","","","",
                         4,4,4,4,"","","","")
                     mPager.setPagingEnabled(false)
                 }
             }
         }  )
 
-        mainActivity.sharedTicketData = TicketData(0,"","","","","",
+        mainActivity.sharedTicketData = TicketData(R.drawable.ticket_layer_black,"","","","","",
             4,4,4,4,"","","","")
         mainActivity.update()
 
@@ -106,6 +112,11 @@ class Tab3 : Fragment() {
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)
     }
+
+    fun updateBGColor() {
+        background.setBackgroundColor(Color.parseColor((activity as MainActivity).getBGHexCode((activity as MainActivity).sharedTicketData.layerColorResource)))
+        baseline.setBackgroundColor(Color.parseColor((activity as MainActivity).getBGHexCode((activity as MainActivity).sharedTicketData.layerColorResource)))
+        }
 
     private inner class ScreenSlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
         override fun getCount(): Int = 6
