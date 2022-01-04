@@ -56,15 +56,19 @@ class ConfirmFormFragment: Fragment(), View.OnClickListener {
         when(view.id){
             R.id.color_black -> {
                 selected = 0
+                (activity as MainActivity).sharedTicketData.layerColorResource = R.drawable.ticket_layer_black
             }
             R.id.color_blue -> {
                 selected = 1
+                (activity as MainActivity).sharedTicketData.layerColorResource = R.drawable.ticket_layer_blue
             }
             R.id.color_green -> {
                 selected = 2
+                (activity as MainActivity).sharedTicketData.layerColorResource = R.drawable.ticket_layer_green
             }
             R.id.color_pink -> {
                 selected = 3
+                (activity as MainActivity).sharedTicketData.layerColorResource = R.drawable.ticket_layer_pink
             }
         }
         animate()

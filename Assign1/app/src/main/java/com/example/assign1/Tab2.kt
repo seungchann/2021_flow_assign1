@@ -1,17 +1,12 @@
 package com.example.assign1
 
-import android.animation.AnimatorSet
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.core.view.doOnAttach
 import androidx.viewpager2.widget.ViewPager2
 import com.example.assign1.databinding.FragmentTab2Binding
 import kotlinx.android.synthetic.main.fragment_tab2.*
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 class Tab2 : Fragment() {
     private lateinit var binding: FragmentTab2Binding
@@ -38,7 +33,7 @@ class Tab2 : Fragment() {
         when (item.itemId) {
             R.id.menuSetting -> {
                 val transaction = requireActivity().supportFragmentManager.beginTransaction() // use requireActivity instead of activity!!
-                transaction.setCustomAnimations(R.anim.back_animator, R.anim.front_animator)
+                transaction.setCustomAnimations(R.animator.back_animator_right_to_left, R.animator.front_animator_right_to_left)
                 transaction.replace(R.id.frameLayout, TicketSettingFragment())
                 transaction.addToBackStack("tab2")
                 transaction.commit()
