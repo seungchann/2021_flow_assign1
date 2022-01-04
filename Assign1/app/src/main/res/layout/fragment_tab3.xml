@@ -10,15 +10,6 @@
 
 
     <View
-        android:id="@+id/hole_back"
-        android:layout_width="280dp"
-        android:layout_height="7dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/form_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
         android:id="@+id/mock_ticket"
         android:layout_width="250dp"
         android:layout_height="400dp"

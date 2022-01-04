@@ -33,7 +33,7 @@ class ContactViewModalAdapter: RecyclerView.Adapter<ContactViewModalAdapter.MyVi
             if(profileData.profileNumber == "") {
                 binding.profileAddressTvModal.text = "삭제하기"
             } else {
-                binding.profileAddressTvModal.text = profileData.profileAddress
+                binding.profileAddressTvModal.text = profileData.profileAddress.split(",")[0]
             }
             when (profileData.profileIcon) {
                 0 -> binding.profilePhotoImgModal.setImageResource(R.drawable.icon_black)

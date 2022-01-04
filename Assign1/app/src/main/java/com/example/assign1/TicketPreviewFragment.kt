@@ -74,7 +74,7 @@ class TicketPreviewFragment: Fragment(){
         dateTextView.text = data.ticketDate
         timeTextView.text = data.ticketTime
         entryFeeTextView.text = data.ticketEntryFee
-        addressTextView.text = data.ticketAddress
+        addressTextView.text = data.ticketAddress.split(",")[0]
         name1TextView.text = data.profileName1
         name2TextView.text = data.profileName2
         name3TextView.text = data.profileName3
