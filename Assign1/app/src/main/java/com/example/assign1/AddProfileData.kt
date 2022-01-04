@@ -27,7 +27,6 @@ import java.util.ArrayList
 class AddProfileData : Fragment() {
 
     private lateinit var binding: FragmentAddProfileDataBinding
-    val imm = App.context().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     lateinit var name:String
     lateinit var phone:String
     lateinit var add:String
@@ -67,7 +66,7 @@ class AddProfileData : Fragment() {
                     if (addDetail == "")
                         totalAddress = add
                     else {
-                        while (addDetail[0].equals(" ")) {
+                        while (addDetail[0] == ' ') {
                             addDetail = addDetail.substring(1)
                         } // 공백 없애주기
                         totalAddress = add + " " + addDetail

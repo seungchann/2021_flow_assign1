@@ -2,8 +2,10 @@ package com.example.assign1
 
 import android.app.PendingIntent.getActivity
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,13 +45,30 @@ class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>(
 
         holder.itemView.setOnClickListener {
 //                Intent(App.context(),ProfileDataDetail().apply{ putExtra("data") addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }.run { App.context().startActivity(this) })
-            val nextIntent = Intent (App.context(), ProfileDetailActivity().javaClass)
-            nextIntent.putExtra("name",datalist[holder.adapterPosition].profileName)
-            nextIntent.putExtra("phone",datalist[holder.adapterPosition].profileNumber)
-            nextIntent.putExtra("address",datalist[holder.adapterPosition].profileAddress)
-            nextIntent.putExtra("icon",datalist[holder.adapterPosition].profileIcon)
-            nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            nextIntent.run { App.context().startActivity(this) }
+//            val nextIntent = Intent (App.context(), ProfileDetailActivity().javaClass)
+//            nextIntent.putExtra("name",datalist[holder.adapterPosition].profileName)
+//            nextIntent.putExtra("phone",datalist[holder.adapterPosition].profileNumber)
+//            nextIntent.putExtra("address",datalist[holder.adapterPosition].profileAddress)
+//            nextIntent.putExtra("icon",datalist[holder.adapterPosition].profileIcon)
+//            nextIntent.putExtra("index",holder.adapterPosition)
+//
+//            nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            nextIntent.run { App.context().startActivity(this) }
+////            App.context().startActivity(nextIntent)
+
+            var nextFragment = ProfileDetail()
+            var bundle = Bundle()
+            bundle.putInt("index",holder.adapterPosition)
+            bundle.putString("name",datalist[holder.adapterPosition].profileName)
+            bundle.putString("phone",datalist[holder.adapterPosition].profileNumber)
+            bundle.putString("address",datalist[holder.adapterPosition].profileAddress)
+            bundle.putInt("icon",datalist[holder.adapterPosition].profileIcon)
+
+            nextFragment.arguments = bundle
+            val transaction = (it.context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.frameLayout, nextFragment)
+            transaction.addToBackStack("tab1")
+            transaction.commit()
 
         }
     }

@@ -3,26 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProfileData"
+    tools:context=".ProfileDataEdit"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/addCardView"
+        android:id="@+id/editCardView"
         android:layout_width="200dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/addLinearLayout1"
+        app:layout_constraintBottom_toTopOf="@+id/editLinearLayout1"
         android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="15dp">
 
         <ImageView
-            android:id="@+id/addImageView"
+            android:id="@+id/editImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:srcCompat="@drawable/icon_black"/>
@@ -32,10 +33,10 @@
 
 
     <LinearLayout
-        android:id="@+id/addLinearLayout1"
+        android:id="@+id/editLinearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/addCardView"
+        app:layout_constraintTop_toBottomOf="@id/editCardView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -57,7 +58,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/addNameEditText"
+                android:id="@+id/editNameEditText"
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="20dp"
@@ -74,7 +75,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/addPhoneTextView"
+                android:id="@+id/editPhoneTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="번호 :"
@@ -82,7 +83,7 @@
 
 
             <EditText
-                android:id="@+id/addPhoneEditText"
+                android:id="@+id/editPhoneEditText"
                 android:layout_width="200dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="20dp"
@@ -99,7 +100,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/addAddressTextView"
+                android:id="@+id/editAddressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="주소 :"
@@ -119,7 +120,7 @@
                     android:gravity="center">
 
                     <TextView
-                        android:id="@+id/addAddressText"
+                        android:id="@+id/editAddressText"
                         android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:textColor="@color/cardview_dark_background"
@@ -138,7 +139,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/addDetailAddressEditText"
+                    android:id="@+id/editDetailAddressEditText"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -151,7 +152,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/addPhoneFinishButton"
+            android:id="@+id/editPhoneFinishButton"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
@@ -162,7 +163,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
