@@ -38,6 +38,14 @@ class ConfirmFormFragment: Fragment(), View.OnClickListener {
             viewList[i].setOnClickListener(this)
         }
 
+        selected = when((activity as MainActivity).sharedTicketData.layerColorResource){
+            R.drawable.ticket_layer_black -> 0
+            R.drawable.ticket_layer_blue -> 1
+            R.drawable.ticket_layer_green -> 2
+            R.drawable.ticket_layer_pink -> 3
+            else -> 0
+        }
+
         return view
     }
 

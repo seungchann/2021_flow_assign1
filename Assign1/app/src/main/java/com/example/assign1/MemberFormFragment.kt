@@ -21,6 +21,7 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
     lateinit var formNameView: Array<TextView>
     lateinit var formCircleImageView: Array<CircleImageView>
     lateinit var previewName: Array<String>
+    lateinit var previewProfile: Array<Int>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +55,27 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
             (activity as MainActivity).sharedTicketData.profileName3,
             (activity as MainActivity).sharedTicketData.profileName4
         )
+
+        previewProfile = arrayOf(
+            (activity as MainActivity).sharedTicketData.profileImageResource1,
+            (activity as MainActivity).sharedTicketData.profileImageResource2,
+            (activity as MainActivity).sharedTicketData.profileImageResource3,
+            (activity as MainActivity).sharedTicketData.profileImageResource4
+        )
+
+        val imageResource = arrayOf(
+            R.drawable.icon_black,
+            R.drawable.icon_blue,
+            R.drawable.icon_green,
+            R.drawable.icon_pink,
+            R.drawable.icon_defult_add
+        )
+
+        for(i in 0..3){
+            formNameView[i].text = previewName[i]
+            formCircleImageView[i].setImageResource( imageResource[ previewProfile[i] ] )
+        }
+
 
 
 
