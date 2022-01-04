@@ -235,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 
     fun findTicketById( name :String ): TicketData? {
         for (ticketData in sampleTicketDatabase) {
-            if( ticketData.ticketHost == name ) return ticketData
+            if( ticketData.ticketTime == name ) return ticketData
         }
         return null
     }
@@ -245,13 +245,13 @@ class MainActivity : AppCompatActivity() {
     val sampleTicketDatabase = arrayListOf<TicketData>(
         TicketData(
             R.drawable.ticket_layer_pink,
-            "4 JAN 2022",
-            "12:00 AM",
-            "5000",
-            "KAIST N1, 110",
-            "12345678901234",
-            1,2,3,4,
-            "가","나","다","라"
+            "23 FEB 2022",
+            "7:00 PM",
+            "₩16000",
+            "서울 성동구 왕십리로 222 (사근동)",
+            "치킨 먹을 사람 모여라~!",
+            3,0,1,4,
+            "이수정","김승찬","박수빈",""
         )
     )
 
