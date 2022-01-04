@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         val fragment1 = fm.findFragmentById(R.id.frameLayout)
         val fragment2 = fragment1?.childFragmentManager?.findFragmentById(R.id.ticket_fragment)
         (fragment2 as TicketPreviewFragment).update(sharedTicketData)
+        (fragment1 as Tab3).updateBGColor()
     }
 
     fun addTicket(){
@@ -179,22 +180,6 @@ class MainActivity : AppCompatActivity() {
             val arrayTicketDataType = object : TypeToken<Array<TicketData>>() {}.type
             var ticketDatas: Array<TicketData> = gson.fromJson(jsonString, arrayTicketDataType)
             ticketDatas.forEach { ticketData -> ticketDataList.add(ticketData) }
-//                ticketDataList.add(TicketData(
-//                    ticketData.layerColorResource,
-//                    ticketData.ticketDate,
-//                    ticketData.ticketTime,
-//                    ticketData.ticketEntryFee,
-//                    ticketData.ticketAddress,
-//                    ticketData.ticketHost,
-//                    ticketData.profileImageResource1,
-//                    ticketData.profileImageResource2,
-//                    ticketData.profileImageResource3,
-//                    ticketData.profileImageResource4,
-//                    ticketData.profileName1,
-//                    ticketData.profileName2,
-//                    ticketData.profileName3,
-//                    ticketData.profileName4
-//                ))
         }
 
         var jsonString2 = loadFromInnerStorage("profiles.json")
@@ -202,6 +187,16 @@ class MainActivity : AppCompatActivity() {
             val arrayProfileDataType = object : TypeToken<Array<ProfileData>>() {}.type
             var profiles: Array<ProfileData> = gson.fromJson(jsonString2, arrayProfileDataType)
             profiles.forEach { profileData -> profileDataList.add(profileData) }
+        }
+    }
+
+    fun getBGHexCode(i: Int):String{
+        return when (i) {
+            R.drawable.ticket_layer_black -> "#242424"
+            R.drawable.ticket_layer_green -> "#09685b"
+            R.drawable.ticket_layer_pink -> "#ff4770"
+            R.drawable.ticket_layer_blue -> "#3e3dae"
+            else -> "#242424"
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.example.assign1
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,16 +71,42 @@ class MemberFormFragment: Fragment(), View.OnClickListener {
         }
 
         val dialog = Dialog(activity as MainActivity)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+
         dialog.setContentView(R.layout.form_member_modal)
 
         val adapter = ContactViewModalAdapter()
-        adapter.datalist = (activity as MainActivity).profileDataList //데이터 넣어줌
+
+
+        // 보이는 리스트를 새로 생성 ( 중복 제거 )
+        val datalist = emptyArray<ProfileData>().toMutableList()
+        if(formNameView[idx].text != ""){
+            datalist.add(
+                ProfileData(formNameView[idx].text.toString(),"","",4)
+            )
+        }
+
+        val original = (activity as MainActivity).profileDataList
+        for(i in 0 until original.size){
+            if(
+                original[i].profileName == ((activity) as MainActivity).sharedTicketData.profileName1
+                || original[i].profileName == ((activity) as MainActivity).sharedTicketData.profileName2
+                || original[i].profileName == ((activity) as MainActivity).sharedTicketData.profileName3
+                || original[i].profileName == ((activity) as MainActivity).sharedTicketData.profileName4
+            ) continue
+            datalist.add(original[i])
+        }
+        adapter.datalist = datalist //데이터 넣어줌
+
+
         val recyclerView = dialog.findViewById<RecyclerView>(R.id.contactModalRecyclerView)
         adapter.setOnItemClickListener(
             object : ContactViewModalAdapter.OnItemClickListener {
                 override fun onItemClick(v: View?, pos: Int) {
 
-                    val text = adapter.datalist[pos].profileName
+                    val text = if(adapter.datalist[pos].profileNumber=="") { "" } else { adapter.datalist[pos].profileName }
+
                     val imgSrc = adapter.datalist[pos].profileIcon
                     val address = adapter.datalist[pos].profileAddress
                         //v?.findViewById<TextView>(R.id.profileNameTvModal)?.text.toString()
