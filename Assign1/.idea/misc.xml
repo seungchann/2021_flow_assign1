@@ -50,7 +50,9 @@
         <entry key="app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/profile_list.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/ticket_layout.xml" value="0.23369565217391305" />
+        <entry key="app/src/main/res/layout/ticket_setting_layout.xml" value="0.23369565217391305" />
         <entry key="app/src/main/res/menu/menu_tab1.xml" value="0.22314814814814815" />
+        <entry key="app/src/main/res/menu/menu_tab3.xml" value="0.37604166666666666" />
       </map>
     </option>
   </component>

@@ -20,7 +20,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ticketColorImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
 
@@ -41,7 +41,7 @@
         android:id="@+id/settingPartyTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="19dp"
         android:fontFamily="@font/yantramanav_medium"
         android:text="TextView"
@@ -64,7 +64,7 @@
         app:srcCompat="@drawable/icon_lines" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ticketColorImageView"
         android:layout_width="15dp"
         android:layout_height="0dp"
         android:background="#000000"
@@ -79,7 +79,7 @@
         android:background="#959595"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/ticketColorImageView" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -87,7 +87,7 @@
         android:layout_height="0.5dp"
         android:background="#959595"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/ticketColorImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
 

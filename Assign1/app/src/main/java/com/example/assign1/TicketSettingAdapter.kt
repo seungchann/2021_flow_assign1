@@ -1,6 +1,7 @@
 package com.example.assign1
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class TicketSettingAdapter(mContext: Activity): RecyclerView.Adapter<TicketSetti
             binding.settingPartyNameTextView.text = ticketData.ticketHost
             binding.settingPartyDateTextView.text = ticketData.ticketDate
             binding.settingPartyTimeTextView.text = ticketData.ticketTime
+            binding.ticketColorImageView.setBackgroundColor(Color.parseColor(mainActivity.getBGHexCode(ticketData.layerColorResource)))
 
             binding.ticketSettingLayout.setOnClickListener {
                 setData(layoutPosition)

@@ -23,7 +23,7 @@ class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdap
 
             when (color) {
                 R.drawable.ticket_layer_black -> hexValues = mutableListOf<String>("#242424", "#919191", "#212121")
-                R.drawable.ticket_layer_pink -> hexValues = mutableListOf<String>("#ff4770", "#ffc2d0", "#db3e63")
+                R.drawable.ticket_layer_pink -> hexValues = mutableListOf<String>("#ff4770", "#ff8ea7", "#db3e63")
                 R.drawable.ticket_layer_blue -> hexValues = mutableListOf<String>("#3e3dae", "#5150e8", "#3e3dae")
                 R.drawable.ticket_layer_green -> hexValues = mutableListOf<String>("#09685b", "#34a79d", "#026326")
                 else -> return
