@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assign1.databinding.ProfileListBinding
-import kotlinx.android.synthetic.main.activity_profile_detail.*
 
 
 class ContactViewAdapter: RecyclerView.Adapter<ContactViewAdapter.MyViewHolder>() {
