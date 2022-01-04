@@ -1,23 +1,28 @@
 # Parcode  
-> Flow 4분반 팀1 (승찬, 수정, 수빈)  
-> 
-
-![MainPage](https://user-images.githubusercontent.com/63276842/148056550-1f43af05-117b-4e8d-b836-e8171faa55b6.png)  
+> Flow Week1 4분반 팀1 
 
 * 홈 파티를 위한 티켓을 생성해주는 Android 기반 어플리케이션입니다.  
 * 홈 파티 멤버들의 연락처와 주소를 저장할 수 있습니다.  
 * 티켓을 만들고, 바코드를 통해 멤버들과 공유가 가능합니다.  
 * 만들어진 홈 파티 티켓을 저장하고 관리할 수 있습니다.  
+
+![MainPage](https://user-images.githubusercontent.com/63276842/148056550-1f43af05-117b-4e8d-b836-e8171faa55b6.png)  
 ***
 
-### A. 개발 환경  
+### A. 개발 팀원  
+* UNIST 컴퓨터공학과 [김승찬](https://github.com/seungchann)  
+* 한양대 컴퓨터소프트웨어학부 [이수정](https://github.com/SooJ2)  
+* KAIST 전산학부 [박수빈](https://github.com/psb0623)  
+***
+
+### B. 개발 환경  
 * OS: Android (minSdk: 21, targetSdk: 31)  
 * Language: Kotlin  
 * IDE: Android Studio  
 * Target Device: Galaxy S7  
 ***
 
-### B. 어플리케이션 소개  
+### C. 어플리케이션 소개  
 ### TAB 1 - 연락처    
 ![page1](https://user-images.githubusercontent.com/63276842/148056876-f0e7b970-e8a1-4884-82ce-0edb704d227f.png)  
 #### Major features   
