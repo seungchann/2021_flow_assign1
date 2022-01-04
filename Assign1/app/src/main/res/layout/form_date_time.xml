@@ -28,22 +28,22 @@
         android:layout_margin="20dp">
 
         <Button
-            android:backgroundTint="#E0E0E0"
-            android:textColor="@color/black"
-            android:layout_margin="3dp"
             android:id="@+id/date_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="날짜 선택" />
+            android:layout_margin="3dp"
+            android:backgroundTint="#242424"
+            android:text="날짜 선택"
+            android:textColor="@color/white" />
 
         <Button
-            android:backgroundTint="#E0E0E0"
-            android:textColor="@color/black"
-            android:layout_margin="3dp"
             android:id="@+id/time_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="시간 선택" />
+            android:layout_margin="3dp"
+            android:backgroundTint="#242424"
+            android:text="시간 선택"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 
