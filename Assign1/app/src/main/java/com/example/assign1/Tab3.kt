@@ -1,5 +1,6 @@
 package com.example.assign1
 
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
@@ -8,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
 import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
@@ -31,7 +33,7 @@ class Tab3 : Fragment() {
     }
 
 
-    val posY = arrayListOf(360, 360, -130, -320, -320, -1700, -1700)
+    val posY = arrayListOf(360, 360, -130, -320, -320, -320, -320)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -77,6 +79,12 @@ class Tab3 : Fragment() {
                     mainActivity.sharedTicketData = TicketData(R.drawable.ticket_layer_black,"","","","","",
                         4,4,4,4,"","","","")
                     mPager.setPagingEnabled(false)
+
+                    ObjectAnimator.ofFloat(ticket, "translationY", -3000f).apply {
+                        interpolator = AccelerateInterpolator(2F)
+                        duration = 1500
+                        start()
+                    }
                 }
             }
         }  )

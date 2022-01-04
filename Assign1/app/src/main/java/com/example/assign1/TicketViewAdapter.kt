@@ -52,9 +52,9 @@ class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdap
             binding.profileImageView3.setImageResource(getResource(ticketData.profileImageResource3))
             binding.profileImageView4.setImageResource(getResource(ticketData.profileImageResource4))
 
-//            val ticketBarcode = BarcodeEncoder().encodeBitmap(mainActivity.loadFromInnerStorage("tickets.json"), BarcodeFormat.CODE_128, 750, 120)
-//            binding.BarcodeImageView.setImageBitmap(ticketBarcode)
-//            setupColor(ticketData.layerColorResource)
+            //val ticketBarcode = BarcodeEncoder().encodeBitmap(mainActivity.loadFromInnerStorage("tickets.json"), BarcodeFormat.CODE_128, 750, 120)
+            //binding.BarcodeImageView.setImageBitmap(ticketBarcode)
+            setupColor(ticketData.layerColorResource)
         }
     }
 
