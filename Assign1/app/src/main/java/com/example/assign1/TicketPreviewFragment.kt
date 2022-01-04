@@ -18,7 +18,7 @@ class TicketPreviewFragment: Fragment(){
     lateinit var ticketLayerImageView: ImageView
     lateinit var dateTextView: TextView
     lateinit var timeTextView: TextView
-    lateinit var entreeFeeTextView: TextView
+    lateinit var entryFeeTextView: TextView
     lateinit var addressTextView: TextView
     lateinit var titleTextView: TextView
     lateinit var name1TextView: TextView
@@ -29,6 +29,10 @@ class TicketPreviewFragment: Fragment(){
     lateinit var imageView2: ImageView
     lateinit var imageView3: ImageView
     lateinit var imageView4: ImageView
+    lateinit var titleTextView1: TextView
+    lateinit var titleTextView2: TextView
+    lateinit var titleTextView3: TextView
+    lateinit var titleTextView4: TextView
 
 
     override fun onCreateView(
@@ -42,7 +46,7 @@ class TicketPreviewFragment: Fragment(){
         titleTextView = view.findViewById(R.id.partyNameTextView)
         dateTextView = view.findViewById(R.id.dateTextView)
         timeTextView = view.findViewById(R.id.timeTextView)
-        entreeFeeTextView = view.findViewById(R.id.costTextView)
+        entryFeeTextView = view.findViewById(R.id.costTextView)
         addressTextView = view.findViewById(R.id.addressTextView)
         name1TextView = view.findViewById(R.id.profileTextView1)
         name2TextView = view.findViewById(R.id.profileTextView2)
@@ -52,6 +56,12 @@ class TicketPreviewFragment: Fragment(){
         imageView2 = view.findViewById(R.id.profileImageView2)
         imageView3 = view.findViewById(R.id.profileImageView3)
         imageView4 = view.findViewById(R.id.profileImageView4)
+        // TitleTextView1 -> Invited to
+        // TitleTextView2 -> Members ...
+        titleTextView1 = view.findViewById(R.id.titleTextView1)
+        titleTextView2 = view.findViewById(R.id.titleTextView2)
+        titleTextView3 = view.findViewById(R.id.titleTextView3)
+        titleTextView4 = view.findViewById(R.id.titleTextView4)
 
         return view
     }
@@ -59,10 +69,11 @@ class TicketPreviewFragment: Fragment(){
     fun update(data: TicketData){
         backgroundColorImageView.setBackgroundColor(Color.parseColor((activity as MainActivity).getBGHexCode(data.layerColorResource)))
         ticketLayerImageView.setImageResource(data.layerColorResource)
+        setupColor(data.layerColorResource)
         titleTextView.text = data.ticketHost
         dateTextView.text = data.ticketDate
         timeTextView.text = data.ticketTime
-        entreeFeeTextView.text = data.ticketEntryFee
+        entryFeeTextView.text = data.ticketEntryFee
         addressTextView.text = data.ticketAddress
         name1TextView.text = data.profileName1
         name2TextView.text = data.profileName2
@@ -72,6 +83,22 @@ class TicketPreviewFragment: Fragment(){
         imageView2.setImageResource(getResource(data.profileImageResource2))
         imageView3.setImageResource(getResource(data.profileImageResource3))
         imageView4.setImageResource(getResource(data.profileImageResource4))
+    }
+
+    fun setupColor(color: Int) {
+        val brightColorTextViewList = mutableListOf<TextView>(titleTextView1, titleTextView2, titleTextView3, titleTextView4)
+        val darkColorTextViewList = mutableListOf<TextView>(dateTextView, timeTextView, name1TextView, name2TextView, name3TextView, name4TextView, titleTextView, addressTextView, entryFeeTextView)
+        var hexValues = mutableListOf<String>()
+
+        when (color) {
+            R.drawable.ticket_layer_black -> hexValues = mutableListOf<String>("#242424", "#919191", "#212121")
+            R.drawable.ticket_layer_pink -> hexValues = mutableListOf<String>("#ff4770", "#ffc2d0", "#db3e63")
+            R.drawable.ticket_layer_blue -> hexValues = mutableListOf<String>("#3e3dae", "#5150e8", "#3e3dae")
+            R.drawable.ticket_layer_green -> hexValues = mutableListOf<String>("#09685b", "#34a79d", "#026326")
+            else -> return
+        }
+        brightColorTextViewList.forEach { it.setTextColor(Color.parseColor(hexValues[1])) }
+        darkColorTextViewList.forEach { it.setTextColor(Color.parseColor(hexValues[2])) }
     }
 
     private fun getResource(i: Int):Int{
