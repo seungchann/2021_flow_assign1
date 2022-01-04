@@ -42,8 +42,8 @@ class ProfileDetail : Fragment() {
         iconData = arguments?.getInt("icon") as Int
 
 
-        val token = address.split(")")
-        address = token[0] + ")"
+        val token = address.split(", ")
+        address = token[0]
         detailAddress = token[1]
         binding.detailNameShowTextView.setText(name)
         binding.detailPhoneShowTextView.setText(phone)
