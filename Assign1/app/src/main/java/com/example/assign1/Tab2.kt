@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.assign1.databinding.FragmentTab2Binding
+import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.fragment_tab2.*
 
 class Tab2 : Fragment() {

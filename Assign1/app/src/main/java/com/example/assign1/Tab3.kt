@@ -3,24 +3,26 @@ package com.example.assign1
 import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.AccelerateInterpolator
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
 import kotlin.math.floor
 
 class Tab3 : Fragment() {
     private lateinit var callback: OnBackPressedCallback
-    private lateinit var mPager: FormViewPager
+    lateinit var mPager: FormViewPager
     private lateinit var background: ConstraintLayout
     private lateinit var baseline: View
 
@@ -31,6 +33,33 @@ class Tab3 : Fragment() {
         super.onAttach(context)
         mainActivity = context as MainActivity
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_tab4, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    // 메뉴 선택시 Barcode 스캔을 진행한다.
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuBarcodeScan -> {
+                val integrator = IntentIntegrator(activity)
+                integrator.setBeepEnabled(false)
+                integrator.setOrientationLocked(true)
+                integrator.setPrompt("바코드를 입력해 주세요.")
+                integrator.initiateScan()
+
+                return super.onOptionsItemSelected(item)
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
 
 
     val posY = arrayListOf(360, 360, -130, -320, -320, -320, -320)
