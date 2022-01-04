@@ -6,6 +6,11 @@
     tools:context=".AddProfileData"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_image_nothing"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/addCardView"
@@ -54,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이름 :"
+                android:textColor="#242424"
                 android:textSize="20sp" />
 
             <EditText
@@ -78,6 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="번호 :"
+                android:textColor="#242424"
                 android:textSize="20sp"/>
 
 
@@ -103,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="주소 :"
+                android:textColor="#242424"
                 android:textSize="20sp"/>
 
             <LinearLayout
@@ -122,8 +130,8 @@
                         android:id="@+id/addAddressText"
                         android:layout_width="145dp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/cardview_dark_background"
-                        android:hint="주소를 검색해주세요"/>
+                        android:hint="주소를 검색해주세요"
+                        android:textColor="@color/cardview_dark_background"/>
 
                     <ImageButton
                         android:id="@+id/searchButton"
@@ -144,7 +152,7 @@
                     android:singleLine="true"
                     android:imeOptions="actionDone"
                     android:textColor="@color/cardview_dark_background"
-                    android:hint="상세 주소를 입력해주세요"/>
+                    android:hint="상세 주소를 입력해주세요" />
 
             </LinearLayout>
 

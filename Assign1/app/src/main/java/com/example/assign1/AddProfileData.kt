@@ -69,7 +69,7 @@ class AddProfileData : Fragment() {
                         while (addDetail[0] == ' ') {
                             addDetail = addDetail.substring(1)
                         } // 공백 없애주기
-                        totalAddress = add + " " + addDetail
+                        totalAddress = add + ", " + addDetail
                     }
 
                     addContactData(name, phone, totalAddress, icon)

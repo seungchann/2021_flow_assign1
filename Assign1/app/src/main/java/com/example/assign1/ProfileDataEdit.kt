@@ -39,6 +39,7 @@ class ProfileDataEdit : Fragment() {
         add = arguments?.getString("address").toString()
         addDetail = arguments?.getString("detailAddress").toString()
         icon = arguments?.getInt("icon") as Int
+        icon2 = icon
 
         binding.editNameEditText.setText(name)
         binding.editPhoneEditText.setText(phone)
@@ -82,13 +83,20 @@ class ProfileDataEdit : Fragment() {
                         while (addDetail2[0] == ' ') {
                             addDetail2 = addDetail2.substring(1)
                         } // 공백 없애주기
-                        totalAddress = add2 + " " + addDetail2
+                        totalAddress = add2 + ", " + addDetail2
                     }
 
                     editContactData(name2, phone2, totalAddress, icon2, index)
                     val nextIntent = Intent (App.context(), MainActivity().javaClass)
+                    nextIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     nextIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     nextIntent.run { App.context().startActivity(this) }
+
+//                    val tmp = requireActivity().supportFragmentManager
+//                    val transaction = tmp.beginTransaction()
+//                    transaction.replace(R.id.frameLayout, Tab1())
+//                    transaction.commit()
+
                 }
             }
 

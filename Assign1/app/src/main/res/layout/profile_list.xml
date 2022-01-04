@@ -38,4 +38,15 @@
         app:layout_constraintStart_toStartOf="@id/profileNameTv"
         android:text="010-0000-0000"/>
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#EAEAEA"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
