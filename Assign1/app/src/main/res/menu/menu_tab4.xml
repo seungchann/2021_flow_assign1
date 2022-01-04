@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menuBarcodeScan"
-        android:title="바코드로 가져오기"
+        android:title="Barcode"
         app:showAsAction="always" />
 </menu>

@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/settingPartyNameTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:fontFamily="@font/yantramanav_medium"
@@ -41,15 +41,15 @@
         android:id="@+id/settingPartyTimeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
         android:layout_marginTop="19dp"
+        android:layout_marginEnd="55dp"
         android:fontFamily="@font/yantramanav_medium"
         android:text="TextView"
         android:textColor="#242424"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/settingPartyDateTextView"
-        app:layout_constraintStart_toEndOf="@+id/settingPartyNameTextView"
+        app:layout_constraintEnd_toStartOf="@+id/dragHandleImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
@@ -76,7 +76,7 @@
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0.5dp"
-        android:background="#959595"
+        android:background="#EAEAEA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ticketColorImageView" />
@@ -85,7 +85,7 @@
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="0.5dp"
-        android:background="#959595"
+        android:background="#EAEAEA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/ticketColorImageView"
         app:layout_constraintTop_toTopOf="parent" />

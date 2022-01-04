@@ -40,7 +40,7 @@ class TicketViewAdapter(mContext: Activity): RecyclerView.Adapter<TicketViewAdap
             binding.timeTextView.text = ticketData.ticketTime
             binding.costTextView.text = ticketData.ticketEntryFee
             binding.partyNameTextView.text = ticketData.ticketHost
-            binding.addressTextView.text = ticketData.ticketAddress
+            binding.addressTextView.text = ticketData.ticketAddress.split(",")[0]
 
             binding.profileTextView1.text = ticketData.profileName1
             binding.profileTextView2.text = ticketData.profileName2

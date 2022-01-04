@@ -74,7 +74,7 @@ class DateTimeFormFragment: Fragment(){
         timeButton.setOnClickListener(
             object: View.OnClickListener {
                 override fun onClick(p0: View?) {
-                    val timePickerDialog = TimePickerDialog(mainActivity,  timeListener, 0,0,false)
+                    val timePickerDialog = TimePickerDialog(mainActivity, timeListener, 0,0,false)
                     timePickerDialog.show()
                 }
             }
