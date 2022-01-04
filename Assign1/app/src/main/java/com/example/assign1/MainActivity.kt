@@ -208,17 +208,16 @@ class MainActivity : AppCompatActivity() {
 
         when(requestCode){
             49374 -> {
-                Toast.makeText(this, requestCode.toString(), Toast.LENGTH_SHORT).show()
 
                 val result: IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
                 if(result != null){
 
                     if(result.contents == null){
-                        Toast.makeText(this, "바코드 읽기를 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "바코드를 인식하지 못했습니다.", Toast.LENGTH_SHORT).show()
                     } else {
                         val ticketData = findTicketById(result.contents.toString())
                         if( ticketData == null) {
-                            Toast.makeText(this, "바코드 읽기를 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "바코드를 인식하지 못했습니다.", Toast.LENGTH_SHORT).show()
                         } else {
                             val fm = supportFragmentManager
                             val fragment = fm.findFragmentById(R.id.frameLayout)
