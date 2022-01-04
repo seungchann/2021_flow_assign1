@@ -18,9 +18,8 @@
 ***
 
 ### B. 어플리케이션 소개  
-#### TAB 1 - 연락처    
-![Screenshot_20220104-204359_Parcode](https://user-images.githubusercontent.com/63276842/148055718-96be34ca-b403-472e-8356-cfbd8c218bc2.jpg)  
-
+### TAB 1 - 연락처    
+![page1](https://user-images.githubusercontent.com/63276842/148056876-f0e7b970-e8a1-4884-82ce-0edb704d227f.png)  
 #### Major features   
 * Contect tab의 우측 상단에 위치한 “ADD” 버튼을 통해 연락처를 추가할 수 있는 화면으로 이동할 수 있습니다.  
   * 아이콘 이미지를 눌러 원하는 아이콘으로 변경할 수 있습니다.  
@@ -54,10 +53,9 @@
 * `getItemCount()` - Recycler view가 data set 크기를 가져갈 때 호출되는 method  
 ***
 
-#### TAB 2 - 티켓 갤러리  
-![Screenshot_20220104-205158_Parcode](https://user-images.githubusercontent.com/63276842/148055822-5dae773f-ffb0-4d5b-b042-404f7ad9ad1c.jpg)  
-![Screenshot_20220104-204813_Parcode](https://user-images.githubusercontent.com/63276842/148055831-bccf473d-69a0-4a35-ada4-b29c25bbbd18.jpg)  
-
+### TAB 2 - 티켓 갤러리  
+![page2](https://user-images.githubusercontent.com/63276842/148057329-00492a6b-a80d-4185-a264-f35d6cebfbfa.png)  
+  
 #### Major features   
 * TAB 3에서 생성된 티켓을 확인하고, 관리할 수 있습니다.  
 * 좌,우로 스와이프하여 갤러리에 다른 티켓을 표시할 수 있습니다.  
@@ -101,10 +99,7 @@
 ***
 
 ### TAB 3 - 티켓 생성 및 불러오기  
-![Screenshot_20220104-204704_Parcode](https://user-images.githubusercontent.com/63276842/148055901-f7589772-b475-4bb6-82bd-bfd62d87fa7a.jpg)  
-![Screenshot_20220104-204719_Parcode](https://user-images.githubusercontent.com/63276842/148055895-000bceda-14cd-4423-a83b-2c3823f29574.jpg)  
-![Screenshot_20220104-204726_Parcode](https://user-images.githubusercontent.com/63276842/148055898-5acc0bb1-c230-4e52-900b-18db90d76968.jpg)  
-![Screenshot_20220104-204741_Parcode](https://user-images.githubusercontent.com/63276842/148055915-ff33f66d-a7f8-4102-98de-2edfb09bedb2.jpg)  
+![page3](https://user-images.githubusercontent.com/63276842/148057789-49047c7d-5829-42c5-9ce2-1221ff2f84b6.png)  
 
 #### 기능 설명  
 * 홈파티 이름, 일정, 참가자 등의 정보를 작성하여 티켓을 생성할 수 있습니다.  
