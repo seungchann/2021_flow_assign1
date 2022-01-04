@@ -57,6 +57,9 @@
         <entry key="app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
         <entry key="app/src/main/res/layout/profile_list.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/menu/menu_tab1.xml" value="0.22314814814814815" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22864583333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_main_round.xml" value="0.22864583333333333" />
       </map>
     </option>
   </component>
