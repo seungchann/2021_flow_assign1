@@ -106,11 +106,12 @@
 ### TAB 3 - 티켓 생성 및 불러오기  
 ![page3](https://user-images.githubusercontent.com/63276842/148057789-49047c7d-5829-42c5-9ce2-1221ff2f84b6.png)  
 
-#### 기능 설명  
+#### Major features   
 * 홈파티 이름, 일정, 참가자 등의 정보를 작성하여 티켓을 생성할 수 있습니다.  
 * 이미 만들어진 티켓의 바코드를 스캔하여 데이터를 저장할 수 있습니다.  
+***
 
-#### 메인 기술 설명  
+#### 기술 설명  
 1. 티켓 생성  
 * 사용자가 파티 정보를 하나씩 입력할 때마다 마치 티켓이 인쇄되는 듯한 효과를 구현하였습니다.  
 * 사용자 입력에 대한 반응이 시각적으로 전달되도록 [ObjectAnimator](https://developer.android.com/reference/android/animation/ObjectAnimator) 클래스를 사용하였습니다.  
