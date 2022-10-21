@@ -10,9 +10,9 @@
 ***
 
 ### A. 개발 팀원  
-* UNIST 컴퓨터공학과 [김승찬](https://github.com/seungchann)  
-* 한양대 컴퓨터소프트웨어학부 [이수정](https://github.com/SooJ2)  
-* KAIST 전산학부 [박수빈](https://github.com/psb0623)  
+* [김승찬](https://github.com/seungchann)  
+* [이수정](https://github.com/SooJ2)  
+* [박수빈](https://github.com/psb0623)  
 ***
 
 ### B. 개발 환경  
